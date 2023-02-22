@@ -9,7 +9,7 @@
 <body>
     <h1>Consultar datos</h1>
     <h2>Eliga qué datos quiere consultar</h2>
-    <a href="#">Bus</a>
+    <a href="bus.php">Bus</a>
     <a href="#">Bicileta publica</a>
     <a href="#">Movilidad</a>
     <a href="#">Aparcamientos</a>
