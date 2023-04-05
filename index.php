@@ -15,8 +15,8 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
 
 <body>
   <h1>Links</h1>
-  <a href="check/">Consultar datos</a>
-  <br>
+  <a href="check/">Consultar datos</a><br>
+  <a href="mapa.php">Mapa</a><br>
   <?php
   if (isset($user)) {
     echo "Bienvenido " . $user . "!";
