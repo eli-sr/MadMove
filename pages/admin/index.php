@@ -28,52 +28,14 @@
 </head>
 
 <body>
-	<button onclick="loadData()">Cargar datos</button>
-	<button onclick="clearData()">Limpiar datos</button>
+	<button onclick="cargarLineas()">Cargar datos LINEAS</button>
+	<button onclick="limpiarLineas()">Limpiar datos LINEAS</button>
+	<button onclick="cargarParadas()">Cargar datos PARADAS</button>
+	<button onclick="limpiarParadas()">Limpiar datos PARADAS</button>
 	<div id="server-response"></div>
 
 	<!-- Body Scripts -->
-	<script>
-		async function loadData() {
-			try {
-				const link = "https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/info/"
-				const response = await fetch(link, {
-					method: "GET",
-					headers: {
-						"accessToken": accessToken
-					}
-				});
-				const data = await response.json();
-				console.log("datos", data)
-				sendToServer(data);
-			} catch (error) {
-				console.error(error);
-			}
-		}
-		function sendToServer(data) {
-			const response = document.getElementById("server-response")
-			const xhr = new XMLHttpRequest();
-			xhr.open("POST", "/pages/api/insertData.php");
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.onload = () => {
-				if (xhr.status === 200) {
-					response.innerHTML = xhr.response;
-				}
-			};
-			xhr.send(JSON.stringify(data));
-		}
-		function clearData() {
-			const response = document.getElementById("server-response")
-			const xhr = new XMLHttpRequest();
-			xhr.open("DELETE", "/pages/api/deleteData.php");
-			xhr.onload = () => {
-				if (xhr.status === 200) {
-					response.innerHTML = xhr.response;
-				}
-			};
-			xhr.send();
-		}
-	</script>
+	<script src="/js/admin.js"></script>
 </body>
 
 </html>

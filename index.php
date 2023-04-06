@@ -19,7 +19,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <a href="pages/mapa.php">Mapa</a><br>
   <?php
   if (isset($user)) {
-    echo "Bienvenido " . $user . "!";
+    echo "Bienvenido " . $user . "!<br>";
+    if ($user == "admin")
+      echo "<a href='pages/admin/'>Panel admin</a><br>";
   } else {
     echo "<a href='pages/login.php'>Login</a>";
   }
