@@ -18,7 +18,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
 
 <body>
   <h1>Iniciar sesión</h1>
-  <form action="/api/login.php" method="post">
+  <form action="/pages/api/login.php" method="post">
     <label for="user">Usuario:</label>
     <input type="text" id="user" name="user"><br>
     <label for="password">Contraseña:</label>

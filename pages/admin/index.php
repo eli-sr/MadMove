@@ -53,7 +53,7 @@
 		function sendToServer(data) {
 			const response = document.getElementById("server-response")
 			const xhr = new XMLHttpRequest();
-			xhr.open("POST", "/api/insertData.php");
+			xhr.open("POST", "/pages/api/insertData.php");
 			xhr.setRequestHeader("Content-Type", "application/json");
 			xhr.onload = () => {
 				if (xhr.status === 200) {
@@ -65,7 +65,7 @@
 		function clearData() {
 			const response = document.getElementById("server-response")
 			const xhr = new XMLHttpRequest();
-			xhr.open("DELETE", "/api/deleteData.php");
+			xhr.open("DELETE", "/pages/api/deleteData.php");
 			xhr.onload = () => {
 				if (xhr.status === 200) {
 					response.innerHTML = xhr.response;

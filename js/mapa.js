@@ -1,3 +1,7 @@
+let accessToken
+window.onload = async function () {
+  accessToken = await getAccessToken()
+}
 const map = L.map('map').setView([40.416, -3.7], 13)
 let linea
 let lineaDraw = {
@@ -31,7 +35,6 @@ async function setLinea(value) {
   linea = L.layerGroup().addTo(map)
   console.log('Mostrar cargando')
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/${value}/stops/1/`
-  const accessToken = await getAccessToken()
   const response = await fetch(link, {
     method: 'GET',
     headers: {

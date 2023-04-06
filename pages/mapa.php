@@ -16,7 +16,7 @@
     <select onchange="setLinea(this.value)">
         <option value="">Selecciona una linea</option>
         <?php
-        include_once "util/executeQuery.php";
+        include_once "../util/executeQuery.php";
         $query = "SELECT * FROM LINEAS";
         $resultado = executeQuery($query);
         while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -25,8 +25,8 @@
         ?>
     </select>
     <div id="map" style="width: 100%; height: 500px;"></div>
-    <script src="js/api.js"></script>
-    <script src="mapa.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/mapa.js"></script>
 </body>
 
 </html>

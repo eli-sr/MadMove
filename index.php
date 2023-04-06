@@ -15,13 +15,13 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
 
 <body>
   <h1>Links</h1>
-  <a href="check/">Consultar datos</a><br>
-  <a href="mapa.php">Mapa</a><br>
+  <a href="pages/check/">Consultar datos</a><br>
+  <a href="pages/mapa.php">Mapa</a><br>
   <?php
   if (isset($user)) {
     echo "Bienvenido " . $user . "!";
   } else {
-    echo "<a href='login.php'>Login</a>";
+    echo "<a href='pages/login.php'>Login</a>";
   }
   ?>
 </body>
