@@ -14,9 +14,9 @@
 
 <body>
     <div>
-        <button onclick="showPaneLinea()">Lineas</button>
-        <button onclick="showPaneParadas()">Paradas</button>
-        <button onclick="showPaneBicis()">Bicicletas</button>
+        <button onclick="showLineas()">Lineas</button>
+        <button onclick="showParadas()">Paradas</button>
+        <button onclick="showBicis()">Bicicletas</button>
     </div>
     <select id="selectLinea" onchange="setLinea(this.value)">
         <option value="">Selecciona una linea</option>
@@ -29,6 +29,10 @@
         }
         ?>
     </select>
+    <div id="selectParadas">
+        <button onclick="setAllParadas()">Mostrar todas las paradas</button>
+        <button>Mostrar paradas cercanas</button>
+    </div>
     <div id="map" style="width: 100%; height: 500px;"></div>
     <script src="/js/api.js"></script>
     <script src="/js/mapa.js"></script>
