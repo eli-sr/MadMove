@@ -26,13 +26,21 @@ function clearLinea() {
   lineaDraw.geometry.coordinates = []
 }
 
-function setParadaLinea(parada) {
+function setLineaDraw(parada) {
+  const coordenadasL = parada.geometry.coordinates
+  lineaDraw.geometry.coordinates.push(coordenadasL.reverse())
+}
+
+function setParada(parada) {
   const nombre = parada.name
   const coordenadasP = parada.geometry.coordinates
-  const coordenadasL = coordenadasP.slice()
-  lineaDraw.geometry.coordinates.push(coordenadasL)
   var marcador = L.marker(coordenadasP.reverse()).addTo(linea)
   marcador.bindPopup(nombre)
+}
+
+function setParadaLinea(parada) {
+  setParada(parada)
+  setLineaDraw(parada)
 }
 
 async function setLinea(value) {
@@ -53,14 +61,6 @@ async function setLinea(value) {
   L.geoJSON(lineaDraw, { color: 'green' }).addTo(linea)
 }
 
-function setParada(parada) {
-  const nombre = parada.NAME
-  const coordenadasP = parada.GEO.coordinates
-  // var marcador = L.marker(coordenadasP.reverse())
-  var marcador = L.marker(coordenadasP.reverse()).addTo(linea)
-  marcador.bindPopup(nombre)
-}
-
 async function setAllParadas() {
   console.log('Mostrar cargando')
   const link = '/pages/api/getParadas.php'
@@ -77,25 +77,38 @@ async function setAllParadas() {
   })
 }
 
-// async function setAllParadas2() {
-//   console.log('Mostrar cargando')
-//   const link = '/pages/api/getParadas.php'
-//   const response = await fetch(link, {
-//     method: 'GET',
-//     headers: {
-//       accessToken: accessToken
-//     }
-//   })
-//   const paradas = await response.json()
-//   var markerGroup = L.featureGroup().addTo(map)
-//   paradas.forEach((parada) => {
-//     var marker = setParada(parada)
-//     markerGroup.addLayer(marker)
-//   })
-//   function onMapMoveEnd() {
-//     var center = map.getCenter()
-//     var marker = L.marker(center).addTo(map)
-//     markerGroup.addLayer(marker)
-//   }
-//   map.on('moveend', onMapMoveEnd)
-// }
+async function getParadas(place, n, range) {
+  if (place.length === 0) return false
+  let number = n.length === 0 ? '1' : n
+  const link = `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/arroundstreet/${place}/${number}/${range}/`
+  const response = await fetch(link, {
+    method: 'GET',
+    headers: {
+      accessToken: accessToken
+    }
+  })
+  const data = await response.json()
+  return data.data
+}
+
+function updateRange(event) {
+  const perValue = document.getElementById('per-value')
+  perValue.innerHTML = event.target.value
+}
+
+async function searchParadas(event) {
+  event.preventDefault()
+  clearLinea()
+  const form = event.target
+  const place = form.querySelector('input[name="place"]').value
+  const number = form.querySelector('input[name="number"]').value
+  const range = form.querySelector('input[name="per"]').value
+  const paradas = await getParadas(place, number, range)
+  if (paradas) {
+    paradas.forEach((parada) => {
+      parada.name = parada.stopName
+      delete parada.stopName
+      setParada(parada)
+    })
+  }
+}

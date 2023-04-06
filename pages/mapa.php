@@ -30,8 +30,16 @@
         ?>
     </select>
     <div id="selectParadas">
+        <form id="searchParadas" onsubmit="searchParadas(event)">
+            <input type="text" name="place" placeholder="Buscar paradas cercanas a zona o calle">
+            <input type="number" name="number" placeholder="Nº calle (opcional)">
+            <label for="per">Perímetro:</label>
+            <input type="range" name="per" min="100" max="1000" value="500" step="50" onchange="updateRange(event)">
+            <p id="per-value">500</p>
+            <button type="submit">Buscar</button>
+        </form>
+        <br>
         <button onclick="setAllParadas()">Mostrar todas las paradas</button>
-        <button>Mostrar paradas cercanas</button>
     </div>
     <div id="map" style="width: 100%; height: 500px;"></div>
     <script src="/js/api.js"></script>

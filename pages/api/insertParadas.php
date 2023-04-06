@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $lineData->name;
     $id = $lineData->node;
     $lines = json_encode($lineData->lines);
-    $query = "INSERT INTO PARADAS (ID,NAME,GEO,LINEAS)
+    $query = "INSERT INTO PARADAS(id,name,geometry,lineas)
       VALUES($id,'$name','$geometry','$lines')";
     // Catch errores
     try {

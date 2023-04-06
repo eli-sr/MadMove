@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     while ($fila = mysqli_fetch_assoc($resultado)) {
         // $fila = json_encode($fila);
         // echo $fila . "<br>";
-        echo '{"ID":' . $fila['ID'] .
-            ',"NAME":"' . $fila['NAME'] .
-            '","LINEAS":' . $fila['LINEAS'] .
-            ',"GEO":' . $fila['GEO'] .
+        echo '{"id":' . $fila['id'] .
+            ',"name":"' . $fila['name'] .
+            '","lineas":' . $fila['lineas'] .
+            ',"geometry":' . $fila['geometry'] .
             '},';
     }
     echo "{}]";
