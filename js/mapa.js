@@ -1,8 +1,5 @@
+// GLOBAL VARS
 let accessToken
-window.onload = async function () {
-  accessToken = await getAccessToken()
-}
-const map = L.map('map').setView([40.416, -3.7], 13)
 let linea
 let lineaDraw = {
   type: 'Feature',
@@ -12,9 +9,17 @@ let lineaDraw = {
   }
 }
 
+// INIT MAP
+const map = L.map('map').setView([40.416, -3.7], 13)
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map)
+
+// FUNCTIONS
+window.onload = async function () {
+  accessToken = await getAccessToken()
+}
 
 function clearLinea() {
   linea.clearLayers()

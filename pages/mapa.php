@@ -13,7 +13,12 @@
 </head>
 
 <body>
-    <select onchange="setLinea(this.value)">
+    <div>
+        <button onclick="showPaneLinea()">Lineas</button>
+        <button onclick="showPaneParadas()">Paradas</button>
+        <button onclick="showPaneBicis()">Bicicletas</button>
+    </div>
+    <select id="selectLinea" onchange="setLinea(this.value)">
         <option value="">Selecciona una linea</option>
         <?php
         include_once "../util/executeQuery.php";
@@ -27,6 +32,7 @@
     <div id="map" style="width: 100%; height: 500px;"></div>
     <script src="/js/api.js"></script>
     <script src="/js/mapa.js"></script>
+    <script src="/js/mapaPanel.js"></script>
 </body>
 
 </html>
