@@ -10,7 +10,11 @@ let lineaDraw = {
 
 // INIT MAP
 const map = L.map('map').setView([40.416, -3.7], 13)
-let linea = L.layerGroup().addTo(map)
+let grupo = L.layerGroup().addTo(map)
+let grupoMC = new L.MarkerClusterGroup({
+  spiderfyOnMaxZoom: false,
+  showCoverageOnHover: false
+})
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
@@ -22,7 +26,7 @@ window.onload = async function () {
 }
 
 function clearLinea() {
-  linea.clearLayers()
+  grupo.clearLayers()
   lineaDraw.geometry.coordinates = []
 }
 
@@ -34,7 +38,7 @@ function setLineaDraw(parada) {
 function setParada(parada) {
   const nombre = parada.name
   const coordenadasP = parada.geometry.coordinates
-  var marcador = L.marker(coordenadasP.reverse()).addTo(linea)
+  var marcador = L.marker(coordenadasP.reverse()).addTo(grupo)
   marcador.bindPopup(nombre)
 }
 
@@ -45,7 +49,7 @@ function setParadaLinea(parada) {
 
 async function setLinea(value) {
   clearLinea()
-  linea = L.layerGroup().addTo(map)
+  grupo = L.layerGroup().addTo(map)
   console.log('Mostrar cargando')
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/${value}/stops/1/`
   const response = await fetch(link, {
@@ -58,7 +62,7 @@ async function setLinea(value) {
   console.log('Mostrar listo!')
   const paradasArray = data.stops
   paradasArray.forEach((parada) => setParadaLinea(parada))
-  L.geoJSON(lineaDraw, { color: 'green' }).addTo(linea)
+  L.geoJSON(lineaDraw, { color: 'green' }).addTo(grupo)
 }
 
 async function setAllParadas() {
@@ -111,4 +115,35 @@ async function searchParadas(event) {
       setParada(parada)
     })
   }
+}
+
+function setZonas(zonas) {
+  zonas.forEach((zona) => {
+    if (zona.canPark) L.geoJSON(zona.geometry, { color: 'green' }).addTo(grupo)
+    else L.geoJSON(zona.geometry, { color: 'red' }).addTo(grupo)
+  })
+}
+
+// var grupoMC
+
+function setEstacion(estacion) {
+  const marcador = L.marker(estacion.geometry.coordinates.reverse())
+  grupoMC.addLayer(marcador)
+}
+
+async function setEstaciones() {
+  const linkZonas = 'https://openapi.emtmadrid.es/v1/transport/bicimadgo/zones/'
+  const linkEst = 'https://openapi.emtmadrid.es/v1/transport/bicimad/stations/'
+  const zonas = await getData(linkZonas)
+  setZonas(zonas)
+  const estaciones = await getData(linkEst)
+  console.log(estaciones)
+  // grupoMC = new L.MarkerClusterGroup({
+  //   spiderfyOnMaxZoom: false,
+  //   showCoverageOnHover: false
+  // })
+  estaciones.forEach((estacion) => {
+    setEstacion(estacion)
+  })
+  grupoMC.addTo(grupo)
 }

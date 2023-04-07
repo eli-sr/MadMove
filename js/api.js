@@ -12,3 +12,18 @@ async function getAccessToken() {
   const data = json.data[0]
   return data.accessToken
 }
+
+async function getData(link, method = 'GET') {
+  try {
+    const response = await fetch(link, {
+      method: method,
+      headers: {
+        accessToken: accessToken
+      }
+    })
+    const data = await response.json()
+    return data.data
+  } catch (error) {
+    console.error(error)
+  }
+}

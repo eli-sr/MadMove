@@ -15,4 +15,7 @@ function showParadas() {
 
 function showBicis() {
   selectLinea.style.display = 'none'
+  selectParadas.style.display = 'none'
+  clearLinea()
+  setEstaciones()
 }
