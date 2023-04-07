@@ -4,18 +4,18 @@ const selectParadas = document.getElementById('selectParadas')
 function showLineas() {
   selectLinea.style.display = 'flex'
   selectParadas.style.display = 'none'
-  clearLinea()
+  clearGrupo()
 }
 
 function showParadas() {
   selectLinea.style.display = 'none'
   selectParadas.style.display = 'flex'
-  clearLinea()
+  clearGrupo()
 }
 
 function showBicis() {
   selectLinea.style.display = 'none'
   selectParadas.style.display = 'none'
-  clearLinea()
+  clearGrupo()
   setEstaciones()
 }

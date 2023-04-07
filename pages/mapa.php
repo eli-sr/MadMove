@@ -48,6 +48,9 @@
     <div id="map" style="width: 100%; height: 500px;"></div>
     <script src="/js/api.js"></script>
     <script src="/js/mapa.js"></script>
+    <script src="/js/mapaLineas.js"></script>
+    <script src="/js/mapaParadas.js"></script>
+    <script src="/js/mapaBicis.js"></script>
     <script src="/js/mapaPanel.js"></script>
 </body>
 
