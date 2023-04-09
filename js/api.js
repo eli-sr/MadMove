@@ -13,14 +13,16 @@ async function getAccessToken() {
   return data.accessToken
 }
 
-async function getData(link, method = 'GET') {
+async function getData(link, method = 'GET', body) {
   try {
-    const response = await fetch(link, {
+    const request = {
       method: method,
       headers: {
         accessToken: accessToken
       }
-    })
+    }
+    if (body !== undefined && method === 'POST') request.body = JSON.stringify(body)
+    const response = await fetch(link, request)
     const data = await response.json()
     return data.data
   } catch (error) {
