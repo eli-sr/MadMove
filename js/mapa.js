@@ -7,6 +7,7 @@ let lineaDraw = {
     coordinates: []
   }
 }
+let paradaCursor = false
 
 // INIT MAP
 const map = L.map('map').setView([40.416, -3.7], 13)
@@ -31,6 +32,7 @@ function clearGrupo() {
   grupo.clearLayers()
   grupoMC.clearLayers()
   lineaDraw.geometry.coordinates = []
+  paradaCursor = false
 }
 
 function setParada(parada, grupo) {
@@ -59,6 +61,7 @@ function addBiciLegend() {
   legend.addTo(map)
 }
 
+// INFO
 async function getArrives(id) {
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/${id}/arrives/`
   const body = { Text_EstimationsRequired_YN: 'Y' }
