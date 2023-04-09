@@ -37,9 +37,17 @@ function clearGrupo() {
 
 function setParada(parada, grupo) {
   const nombre = parada.name
-  const coordenadasP = parada.geometry.coordinates
-  var marcador = L.marker(coordenadasP.reverse()).addTo(grupo)
+  const coordenadas = parada.geometry.coordinates
+  var marcador = L.marker(coordenadas.reverse()).addTo(grupo)
   marcador.on('click', () => showInfoParada(parada))
+  marcador.bindPopup(nombre)
+}
+
+function setEstacion(estacion, grupo) {
+  const nombre = estacion.name
+  const coordenadas = estacion.geometry.coordinates
+  var marcador = L.marker(coordenadas.reverse()).addTo(grupo)
+  marcador.on('click', () => showInfoEstacion(estacion))
   marcador.bindPopup(nombre)
 }
 

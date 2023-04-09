@@ -50,9 +50,7 @@
     <div id="map" style="width: 100%; height: 500px;"></div>
     <div id="info">
         <h2 id='nombre'></h2>
-        <p id='direccion'></p>
         <div id="detalles"></div>
-
     </div>
     <script src="/js/api.js"></script>
     <script src="/js/mapa.js"></script>

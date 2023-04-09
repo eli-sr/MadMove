@@ -32,12 +32,10 @@ async function showInfoParada(parada) {
   // HTML Constants
   const nombre = document.getElementById('nombre')
   const infoHTML = document.getElementById('info')
-  const direccion = document.getElementById('direccion')
   const detalles = document.getElementById('detalles')
   // Resetting info
   infoHTML.style.display = 'none'
   detalles.innerText = ''
-  direccion.innerText = ''
   // Getting ID
   let id = parada.stop
   if (id === undefined) id = parada.id
@@ -69,7 +67,7 @@ async function showInfoParada(parada) {
   })
   // Showing info
   nombre.innerText = info.name
-  direccion.textContent = 'Dirección: ' + info.postalAddress
+  detalles.innerHTML = `Dirección: ${info.postalAddress} <br>`
   info.dataLine.forEach((linea) => {
     const div = document.createElement('div')
     div.innerHTML = `
