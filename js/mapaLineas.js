@@ -4,16 +4,17 @@ function setLineaDraw(parada) {
 }
 
 function setParadaLinea(parada) {
-  setParada(parada,grupo)
+  setParada(parada, grupo)
   setLineaDraw(parada)
 }
 
-async function setLinea(value) {
+async function setLinea(value, dir = 1) {
   clearGrupo()
   console.log('Mostrar cargando')
-  const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/${value}/stops/1/`
+  let id = value
+  if (!id) id = document.getElementById('selectLinea').value
+  const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/${id}/stops/${dir}/`
   const data = await getData(link)
-  console.log(data)
   console.log('Mostrar listo!')
   const paradas = data[0].stops
   paradas.forEach((parada) => setParadaLinea(parada))

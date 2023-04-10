@@ -22,18 +22,22 @@
         <button onclick="showParadas()">Paradas</button>
         <button onclick="showBicis()">Bicicletas</button>
     </div>
-    <select id="selectLinea" onchange="setLinea(this.value)">
-        <option value="">Selecciona una linea</option>
-        <?php
-        include_once "../util/executeQuery.php";
-        $query = "SELECT * FROM LINEAS";
-        $resultado = executeQuery($query);
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            echo "<option value='" . $fila['line'] . "'>" . $fila['label'] . ": " . $fila['nameA'] . " - " . $fila['nameB'] . "</option>";
-        }
-        ?>
-    </select>
-    <div id="selectParadas">
+    <div id="panelLinea">
+        <select id="selectLinea" onchange="setLinea(this.value)">
+            <option value="">Selecciona una linea</option>
+            <?php
+            include_once "../util/executeQuery.php";
+            $query = "SELECT * FROM LINEAS";
+            $resultado = executeQuery($query);
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                echo "<option value='" . $fila['line'] . "'>" . $fila['label'] . ": " . $fila['nameA'] . " - " . $fila['nameB'] . "</option>";
+            }
+            ?>
+        </select>
+        <button onclick="setLinea(null,1)">A -> B</button>
+        <button onclick="setLinea(null,2)">B -> A</button>
+    </div>
+    <div id="panelParadas">
         <form id="searchParadas" onsubmit="searchParadas(event)">
             <input type="text" name="place" placeholder="Buscar paradas cercanas a zona o calle">
             <input type="number" name="number" placeholder="Nº calle (opcional)">

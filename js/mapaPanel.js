@@ -1,5 +1,5 @@
-const selectLinea = document.getElementById('selectLinea')
-const selectParadas = document.getElementById('selectParadas')
+const selectLinea = document.getElementById('panelLinea')
+const selectParadas = document.getElementById('panelParadas')
 const biciLegend = document.getElementsByClassName('bici-legend')[0]
 
 function showLineas() {
