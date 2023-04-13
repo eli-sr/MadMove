@@ -8,6 +8,7 @@ let lineaDraw = {
   }
 }
 let paradaCursor = false
+let comoLlegar = false
 
 // INIT MAP
 const map = L.map('map').setView([40.416, -3.7], 13)
@@ -33,6 +34,7 @@ function clearGrupo() {
   grupoMC.clearLayers()
   lineaDraw.geometry.coordinates = []
   paradaCursor = false
+  comoLlegar = false
 }
 
 function setParada(parada, grupo) {
@@ -67,4 +69,8 @@ function addBiciLegend() {
     return div
   }
   legend.addTo(map)
+}
+
+function addMarkMap(event) {
+  L.marker(event.latlng).addTo(grupo)
 }

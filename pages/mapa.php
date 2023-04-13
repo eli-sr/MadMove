@@ -21,6 +21,7 @@
         <button onclick="showLineas()">Lineas</button>
         <button onclick="showParadas()">Paradas</button>
         <button onclick="showBicis()">Bicicletas</button>
+        <button onclick="showComoLlegar()">Cómo llegar</button>
     </div>
     <div id="panelLinea">
         <select id="selectLinea" onchange="setLinea(this.value)">
@@ -51,6 +52,9 @@
         <button onclick="setAllParadas()">Mostrar todas las paradas</button>
         <button onclick="setParadaCursor()">Mostrar paradas a un punto</button>
     </div>
+    <div id="panelComoLlegar">
+        <input type="text" name="place" placeholder="Elige un punto de partida en el mapa">
+    </div>
     <div id="map" style="width: 100%; height: 500px;"></div>
     <div id="info">
         <h2 id='nombre'></h2>
@@ -62,6 +66,7 @@
     <script src="/js/mapaParadas.js"></script>
     <script src="/js/mapaInfo.js"></script>
     <script src="/js/mapaBicis.js"></script>
+    <script src="/js/mapaCL.js"></script>
     <script src="/js/mapaPanel.js"></script>
 </body>
 

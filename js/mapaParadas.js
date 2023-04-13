@@ -1,5 +1,5 @@
 // INIT MAP
-map.on('click', addMarkMap)
+map.on('click', showParadasCursor)
 
 // FUNCTIONS
 async function setAllParadas() {
@@ -65,10 +65,11 @@ function setParadaCursor() {
   paradaCursor = true
 }
 
-async function addMarkMap(event) {
+async function showParadasCursor(event) {
   if (!paradaCursor) return
-  const range = document.getElementById("per").value
-  L.marker(event.latlng).addTo(grupo)
+  paradaCursor = false
+  const range = document.getElementById('per').value
+  addMarkMap(event)
   const paradas = await getParadasCursor(event.latlng, range)
   if (paradas) {
     paradas.forEach((parada) => {

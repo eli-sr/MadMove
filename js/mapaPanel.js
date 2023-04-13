@@ -1,25 +1,38 @@
-const selectLinea = document.getElementById('panelLinea')
-const selectParadas = document.getElementById('panelParadas')
+const panelLinea = document.getElementById('panelLinea')
+const panelParadas = document.getElementById('panelParadas')
+const panelComoLlegar = document.getElementById('panelComoLlegar')
 const biciLegend = document.getElementsByClassName('bici-legend')[0]
 
 function showLineas() {
-  selectLinea.style.display = 'flex'
-  selectParadas.style.display = 'none'
+  panelLinea.style.display = 'flex'
+  panelParadas.style.display = 'none'
+  panelComoLlegar.style.display = 'none'
   biciLegend.style.display = 'none'
   clearGrupo()
 }
 
 function showParadas() {
-  selectLinea.style.display = 'none'
-  selectParadas.style.display = 'flex'
+  panelLinea.style.display = 'none'
+  panelParadas.style.display = 'flex'
+  panelComoLlegar.style.display = 'none'
   biciLegend.style.display = 'none'
   clearGrupo()
 }
 
 function showBicis() {
-  selectLinea.style.display = 'none'
-  selectParadas.style.display = 'none'
+  panelLinea.style.display = 'none'
+  panelParadas.style.display = 'none'
+  panelComoLlegar.style.display = 'none'
   biciLegend.style.display = 'flex'
   clearGrupo()
   setEstaciones()
+}
+
+function showComoLlegar() {
+  panelLinea.style.display = 'none'
+  panelParadas.style.display = 'none'
+  panelComoLlegar.style.display = 'flex'
+  biciLegend.style.display = 'none'
+  clearGrupo()
+  comoLlegar = true
 }
