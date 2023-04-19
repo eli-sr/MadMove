@@ -3,7 +3,7 @@ map.on('click', setMarks)
 
 // GLOBAL VARS
 let parada1 = null
-let parada2 = null 
+let parada2 = null
 
 // FUNCTIONS
 async function getTrip(parada1, parada2) {
@@ -28,6 +28,54 @@ async function getTrip(parada1, parada2) {
   return data
 }
 
+function getDuration(minutes) {
+  return Math.round(minutes)
+}
+
+function getDistance(km) {
+  return km.toFixed(2)
+}
+
+function showStep(step) {
+  const stepData = step.properties
+  const div = document.createElement('div')
+  div.innerHTML = `${stepData.description}<br>`
+  return div
+}
+
+function showSection(section) {
+  console.log('sect', section)
+  const div = document.createElement('div')
+  switch (section.type) {
+    case 'Walk':
+      div.innerHTML = '<h3>A pie</h3>'
+      break
+    case 'Bus':
+      div.innerHTML = '<h3>Bus</h3>'
+      break
+    default:
+      break
+  }
+  div.innerHTML += `
+      ${getDuration(section.duration)} min (${getDistance(section.distance)} km)<br>
+    `
+  // Showing every step info
+  // Source
+  if (section.type === 'Bus')
+    div.innerHTML += `
+        <p>${section.source.properties.description}</p>
+      `
+  // Steps
+  section.route.features.forEach((step) => {
+    div.append(showStep(step))
+  })
+  // Dest
+  div.innerHTML += `
+  <p>${section.destination.properties.description}</p>
+  `
+  return div
+}
+
 function showInfoTrip(trip) {
   // HTML Constants
   const nombre = document.getElementById('nombre')
@@ -39,10 +87,14 @@ function showInfoTrip(trip) {
   // Showing info
   nombre.innerText = 'Itinerario'
   detalles.innerHTML = `
-    ${Math.round(trip.duration)} min (${trip.distance.toFixed(2)} km)<br>
+    ${getDuration(trip.duration)} min (${getDistance(trip.distance)} km)<br>
     Salida: ${trip.departureTime}<br>
     Llegada: ${trip.arrivalTime}<br>
   `
+  // Showing every section info
+  trip.sections.forEach((section) => {
+    detalles.append(showSection(section))
+  })
   infoHTML.style.display = 'flex'
 }
 
