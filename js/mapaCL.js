@@ -2,8 +2,8 @@
 map.on('click', setMarks)
 
 // GLOBAL VARS
-let parada1 = false
-let parada2 = false
+let parada1 = null
+let parada2 = null 
 
 // FUNCTIONS
 async function getTrip(parada1, parada2) {
@@ -54,7 +54,9 @@ function setLineTrip(sections) {
       properties: {}
     }
     let color = section.type === 'Walk' ? 'orange' : 'green'
+    // Add lines
     L.geoJSON(geojsonFeature, { color }).addTo(grupo)
+    // Add steps
     L.geoJSON(section.route, {
       onEachFeature: function (feature, layer) {
         layer.bindPopup(feature.properties.description)
@@ -71,13 +73,19 @@ async function setMarks(event) {
   } else if (!parada2) {
     addMarkMap(event)
     parada2 = event.latlng
+  }
+  if (parada1 && parada2) {
     // Get trip
     console.log('Mostar cargando!')
     const trip = await getTrip(parada1, parada2)
+    console.log(trip)
     console.log('Mostar ok!')
     showInfoTrip(trip)
-    console.log(trip)
-    // Add lines
+    // Add lines & stops
     setLineTrip(trip.sections)
+    // Reset
+    comoLlegar = false
+    parada1 = null
+    parada2 = null
   }
 }
