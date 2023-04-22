@@ -1,5 +1,6 @@
-#panelParadas, #panelComoLlegar {
-    display: none;
+body {
+    display: flex;
+    margin: 0;
 }
 
 .bici-legend {
@@ -24,6 +25,89 @@
 }
 
 .bici-legend li {
-  display: flex; 
-  align-items: center;
+    display: flex; 
+    align-items: center;
 }
+
+#map {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+.aside-1, .aside-2{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 0 0 10px -5px #333;
+}
+
+.aside-1 {
+    z-index: 10;
+}
+
+.aside-2 {
+    z-index: 5;
+}
+
+.aside-1 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.aside-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside-icon img{
+    aspect-ratio: 1/1;
+    width: 40px;
+}
+
+.aside-icon p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.aside-2 {
+    width: 300px;
+    position: fixed;
+    left: -350px;
+    padding-left: 100px;
+    /* padding: 30px; */
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+}
+
+#panelLinea, #panelParadas, #panelComoLlegar {
+    display: none;
+}
+
+@keyframes openMenu{
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeMenu{
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
