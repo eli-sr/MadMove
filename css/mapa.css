@@ -1,8 +1,3 @@
-body {
-    display: flex;
-    margin: 0;
-}
-
 .bici-legend {
     background-color: white;
     display: none;
@@ -46,34 +41,55 @@ body {
 
 .aside-1 {
     z-index: 10;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .aside-2 {
     z-index: 5;
+    overflow-y: auto;
 }
 
 .aside-1 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    align-items: center;
-}
-
-.aside-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.aside-icon img{
-    aspect-ratio: 1/1;
-    width: 40px;
+.aside-1 li:first-child {
+  margin-top: 1.5rem;
 }
 
-.aside-icon p {
+.aside-1 li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.aside-button {
+    background: white;
+    border: 0;
+    cursor: pointer;
+    color: #5c5c5c;
+}
+
+.aside-button p {
     margin: 0;
     white-space: nowrap;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.aside-button span {
+    font-size: xx-large;
+}
+
+.aside-button button {
+    background: white;
+    border: 0;
+    cursor: pointer;
 }
 
 .aside-2 {
@@ -81,7 +97,7 @@ body {
     position: fixed;
     left: -350px;
     padding-left: 100px;
-    /* padding: 30px; */
+    padding-top: 30px;
 }
 
 #info {

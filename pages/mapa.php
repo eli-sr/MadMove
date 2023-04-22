@@ -6,40 +6,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/css/mapa.css">
+  <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  <!-- Marker Cluster -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/mapa.css">
 </head>
 
 <body>
   <aside class="aside-1">
     <ul>
-      <li class="aside-icon">
-        <button onclick="showLineas()">
-          <img src="https://www.jobalign.com/wp-content/uploads/2017/07/Icon-Placeholder-1.png">
+      <li>
+        <button class="aside-button" onclick="showLineas()">
+          <span class="material-symbols-rounded">timeline</span>
           <p>Lineas</p>
         </button>
       </li>
-      <li class="aside-icon">
-        <button onclick="showParadas()">
-          <img src="https://www.jobalign.com/wp-content/uploads/2017/07/Icon-Placeholder-1.png">
+      <li>
+        <button class="aside-button" onclick="showParadas()">
+          <span class="material-symbols-rounded">directions_bus</span>
           <p>Paradas</p>
         </button>
       </li>
-      <li class="aside-icon">
-        <button onclick="showBicis()">
-          <img src="https://www.jobalign.com/wp-content/uploads/2017/07/Icon-Placeholder-1.png">
+      <li>
+        <button class="aside-button" onclick="showBicis()">
+          <span class="material-symbols-rounded">pedal_bike</span>
           <p>Bicicletas</p>
         </button>
       </li>
-      <li class="aside-icon">
-        <button onclick="showComoLlegar()">
-          <img src="https://www.jobalign.com/wp-content/uploads/2017/07/Icon-Placeholder-1.png">
+      <li>
+        <button class="aside-button" onclick="showComoLlegar()">
+          <span class="material-symbols-rounded">route</span>
           <p>Cómo llegar</p>
         </button>
       </li>

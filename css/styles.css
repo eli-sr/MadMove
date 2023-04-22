@@ -1,0 +1,8 @@
+body * {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    margin: 0;
+}
