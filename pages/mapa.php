@@ -58,36 +58,62 @@
   </aside>
   <aside class="aside-2">
     <div id="panelLinea" class="panel">
-      <select id="selectLinea" onchange="setLinea(this.value)">
-        <option value="">Selecciona una linea</option>
-        <?php
-        include_once "../util/executeQuery.php";
-        $query = "SELECT * FROM LINEAS";
-        $resultado = executeQuery($query);
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-          echo "<option value='" . $fila['line'] . "'>" . $fila['label'] . ": " . $fila['nameA'] . " - " . $fila['nameB'] . "</option>";
-        }
-        ?>
-      </select>
-      <button onclick="setLinea(null,1)">A -> B</button>
-      <button onclick="setLinea(null,2)">B -> A</button>
+      <h1>Líneas</h1>
+      <p>Horarios y recorridos de las líneas de autobuses</p>
+      <div class="block">
+
+        <h2>Buscar línea</h2>
+        <select id="selectLinea" class="input" onchange="setLinea(this.value)">
+          <option value="">Selecciona una linea</option>
+          <?php
+          include_once "../util/executeQuery.php";
+          $query = "SELECT * FROM LINEAS";
+          $resultado = executeQuery($query);
+          while ($fila = mysqli_fetch_assoc($resultado)) {
+            echo "<option value='" . $fila['line'] . "'>" . $fila['label'] . ": " . $fila['nameA'] . " - " . $fila['nameB'] . "</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div class="block">
+        <h2>Sentido</h2>
+        <div class="block-h">
+          <button class="boton" onclick="setLinea(null,1)">A -> B</button>
+          <button class="boton" onclick="setLinea(null,2)">B -> A</button>
+        </div>
+      </div>
     </div>
     <div id="panelParadas" class="panel">
-      <form id="searchParadas" onsubmit="searchParadas(event)">
-        <input type="text" name="place" placeholder="Buscar paradas cercanas a zona o calle">
-        <input type="number" name="number" placeholder="Nº calle (opcional)">
-        <label for="per">Perímetro:</label>
-        <input id="per" type="range" name="per" min="100" max="1000" value="500" step="50"
-          onchange="updateRange(event)">
-        <p id="per-value">500</p>
-        <button type="submit">Buscar</button>
-      </form>
-      <br>
-      <button onclick="setAllParadas()">Mostrar todas las paradas</button>
-      <button onclick="setParadaCursor()">Mostrar paradas a un punto</button>
-    </div>
-    <div id="panelComoLlegar" class="panel">
-      <input type="text" name="place" placeholder="Elige un punto de partida en el mapa">
+      <h1>Paradas</h1>
+      <p>Horarios y líneas de las paradas de autobús</p>
+      <div class="block">
+        <button class="boton" onclick="setAllParadas()">Mostrar todas las paradas</button>
+      </div>
+      <div class="block">
+        <h2>Paradas cercanas</h2>
+        <button class="boton" onclick="setParadaCursor()">Mostrar paradas a un punto</button>
+        <p>o</p>
+        <form id="searchParadas" onsubmit="searchParadas(event)" class="block">
+          <input type="text" name="place" class="input" placeholder="Buscar paradas cercanas a zona o calle">
+          <input type="number" name="number" class="input" placeholder="Nº calle (opcional)">
+          <div class="block">
+            <h2>Perímetro</h2>
+            <!-- <label for="per">Perímetro:</label> -->
+            <div class="block-h">
+              <input id="per" type="range" name="per" min="100" max="1000" value="500" step="50"
+                onchange="updateRange(event)">
+              <span>
+                <span id="per-value">500</span>m
+              </span>
+            </div>
+            <button type="submit" class="boton boton-1">Buscar</button>
+          </div>
+        </form>
+        <br>
+      </div>
+      <div id="panelComoLlegar" class="panel">
+        <input type="text" name="place" placeholder="Elige un punto de partida en el mapa">
+      </div>
     </div>
     <div id="info">
       <h2 id='nombre'></h2>
