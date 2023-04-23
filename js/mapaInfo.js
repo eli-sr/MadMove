@@ -1,3 +1,8 @@
+// CONSTANTS
+const nombre = document.getElementById('nombre')
+const infoHTML = document.getElementById('info')
+const detalles = document.getElementById('detalles')
+
 async function getArrives(id) {
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/${id}/arrives/`
   const body = { Text_EstimationsRequired_YN: 'Y' }
@@ -28,14 +33,14 @@ function getDB(DistanceBus) {
   return string
 }
 
-async function showInfoParada(parada) {
-  // HTML Constants
-  const nombre = document.getElementById('nombre')
-  const infoHTML = document.getElementById('info')
-  const detalles = document.getElementById('detalles')
-  // Resetting info
+function resetInfo(){
   infoHTML.style.display = 'none'
   detalles.innerText = ''
+}
+
+async function showInfoParada(parada) {
+  // Resetting info
+  resetInfo()
   // Getting ID
   let id = parada.stop
   if (id === undefined) id = parada.id

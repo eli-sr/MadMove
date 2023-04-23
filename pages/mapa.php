@@ -57,7 +57,7 @@
     </ul>
   </aside>
   <aside class="aside-2">
-    <div id="panelLinea">
+    <div id="panelLinea" class="panel">
       <select id="selectLinea" onchange="setLinea(this.value)">
         <option value="">Selecciona una linea</option>
         <?php
@@ -72,7 +72,7 @@
       <button onclick="setLinea(null,1)">A -> B</button>
       <button onclick="setLinea(null,2)">B -> A</button>
     </div>
-    <div id="panelParadas">
+    <div id="panelParadas" class="panel">
       <form id="searchParadas" onsubmit="searchParadas(event)">
         <input type="text" name="place" placeholder="Buscar paradas cercanas a zona o calle">
         <input type="number" name="number" placeholder="Nº calle (opcional)">
@@ -86,7 +86,7 @@
       <button onclick="setAllParadas()">Mostrar todas las paradas</button>
       <button onclick="setParadaCursor()">Mostrar paradas a un punto</button>
     </div>
-    <div id="panelComoLlegar">
+    <div id="panelComoLlegar" class="panel">
       <input type="text" name="place" placeholder="Elige un punto de partida en el mapa">
     </div>
     <div id="info">

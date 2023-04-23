@@ -25,6 +25,7 @@ function showLineas() {
   panelComoLlegar.style.display = 'none'
   biciLegend.style.display = 'none'
   clearGrupo()
+  resetInfo()
 }
 
 function showParadas() {
@@ -34,6 +35,7 @@ function showParadas() {
   panelComoLlegar.style.display = 'none'
   biciLegend.style.display = 'none'
   clearGrupo()
+  resetInfo()
 }
 
 function showBicis() {
@@ -44,6 +46,7 @@ function showBicis() {
   biciLegend.style.display = 'flex'
   clearGrupo()
   setEstaciones()
+  resetInfo()
 }
 
 function showComoLlegar() {
@@ -53,5 +56,6 @@ function showComoLlegar() {
   panelComoLlegar.style.display = 'flex'
   biciLegend.style.display = 'none'
   clearGrupo()
+  resetInfo()
   comoLlegar = true
 }
