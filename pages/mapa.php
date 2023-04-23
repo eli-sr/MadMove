@@ -78,8 +78,8 @@
       <div class="block">
         <h2>Sentido</h2>
         <div class="block-h">
-          <button class="boton" onclick="setLinea(null,1)">A -> B</button>
-          <button class="boton" onclick="setLinea(null,2)">B -> A</button>
+          <button class="boton boton-1" onclick="setLinea(null,1)">A -> B</button>
+          <button class="boton boton-1" onclick="setLinea(null,2)">B -> A</button>
         </div>
       </div>
     </div>
@@ -87,11 +87,11 @@
       <h1>Paradas</h1>
       <p>Horarios y líneas de las paradas de autobús</p>
       <div class="block">
-        <button class="boton" onclick="setAllParadas()">Mostrar todas las paradas</button>
+        <button class="boton boton-1" onclick="setAllParadas()">Mostrar todas las paradas</button>
       </div>
       <div class="block">
         <h2>Paradas cercanas</h2>
-        <button class="boton" onclick="setParadaCursor()">Mostrar paradas a un punto</button>
+        <button class="boton boton-1" onclick="setParadaCursor()">Mostrar paradas a un punto</button>
         <p>o</p>
         <form id="searchParadas" onsubmit="searchParadas(event)" class="block">
           <input type="text" name="place" class="input" placeholder="Buscar paradas cercanas a zona o calle">
@@ -106,13 +106,28 @@
                 <span id="per-value">500</span>m
               </span>
             </div>
-            <button type="submit" class="boton boton-1">Buscar</button>
+            <button type="submit" class="boton">Buscar</button>
           </div>
         </form>
         <br>
       </div>
-      <div id="panelComoLlegar" class="panel">
-        <input type="text" name="place" placeholder="Elige un punto de partida en el mapa">
+    </div>
+    <div id="panelBicicleta" class="panel">
+      <h1>Bicicletas</h1>
+      <p>Detalles de las estaciones y las bicicletas disponibles</p>
+      <div class="block">
+        <h2>Leyenda</h2>
+        <p class="green-emphasis">Zona ciclable</p>
+        <p class="red-emphasis">Zona no ciclable</p>
+      </div>
+    </div>
+    <div id="panelComoLlegar" class="panel">
+      <h1>Cómo llegar</h1>
+      <p>Detalles del trayecto a seguir</p>
+      <div class="block">
+        <h2>Leyenda</h2>
+        <p class="green-emphasis">Bus</p>
+        <p class="red-emphasis">A pie</p>
       </div>
     </div>
     <div id="info">
@@ -120,7 +135,7 @@
       <div id="detalles"></div>
     </div>
   </aside>
-  <div id="map" style="width: 100%; height: 100vh;"></div>
+  <div id="map"></div>
   <script src="/js/api.js"></script>
   <script src="/js/mapa.js"></script>
   <script src="/js/mapaLineas.js"></script>

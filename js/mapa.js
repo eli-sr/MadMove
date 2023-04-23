@@ -22,7 +22,6 @@ let grupoMC = new L.MarkerClusterGroup({
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map)
-addBiciLegend()
 
 // FUNCTIONS
 window.onload = async function () {
@@ -51,24 +50,6 @@ function setEstacion(estacion, grupo) {
   var marcador = L.marker(coordenadas.reverse()).addTo(grupo)
   marcador.on('click', () => showInfoEstacion(estacion))
   marcador.bindPopup(nombre)
-}
-
-function addBiciLegend() {
-  var legend = L.control({ position: 'bottomleft' })
-  legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'bici-legend')
-    var redcir = '<svg width="20" height="20"><circle cx="10" cy="10" r="8" fill="red"/></svg>'
-    var greencir = '<svg width="20" height="20"><circle cx="10" cy="10" r="8" fill="green"/></svg>'
-    div.innerHTML = `
-      <h4>Leyenda</h4>
-      <ul>
-        <li>${greencir} Zona de bicicletas permitidas</li>
-        <li>${redcir} Zona de bicicletas prohibidas</li>
-      </ul>
-    `
-    return div
-  }
-  legend.addTo(map)
 }
 
 function addMarkMap(event) {

@@ -1,7 +1,7 @@
 const panelLinea = document.getElementById('panelLinea')
 const panelParadas = document.getElementById('panelParadas')
 const panelComoLlegar = document.getElementById('panelComoLlegar')
-const biciLegend = document.getElementsByClassName('bici-legend')[0]
+const panelBicicleta = document.getElementById('panelBicicleta')
 const aside2 = document.getElementsByClassName('aside-2')[0]
 
 let menuOpen = false
@@ -23,7 +23,7 @@ function showLineas() {
   panelLinea.style.display = 'flex'
   panelParadas.style.display = 'none'
   panelComoLlegar.style.display = 'none'
-  biciLegend.style.display = 'none'
+  panelBicicleta.style.display = 'none'
   clearGrupo()
   resetInfo()
 }
@@ -33,7 +33,7 @@ function showParadas() {
   panelLinea.style.display = 'none'
   panelParadas.style.display = 'flex'
   panelComoLlegar.style.display = 'none'
-  biciLegend.style.display = 'none'
+  panelBicicleta.style.display = 'none'
   clearGrupo()
   resetInfo()
 }
@@ -43,7 +43,7 @@ function showBicis() {
   panelLinea.style.display = 'none'
   panelParadas.style.display = 'none'
   panelComoLlegar.style.display = 'none'
-  biciLegend.style.display = 'flex'
+  panelBicicleta.style.display = 'flex'
   clearGrupo()
   setEstaciones()
   resetInfo()
@@ -54,7 +54,7 @@ function showComoLlegar() {
   panelLinea.style.display = 'none'
   panelParadas.style.display = 'none'
   panelComoLlegar.style.display = 'flex'
-  biciLegend.style.display = 'none'
+  panelBicicleta.style.display = 'none'
   clearGrupo()
   resetInfo()
   comoLlegar = true
