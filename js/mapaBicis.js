@@ -18,6 +18,7 @@ async function setEstaciones() {
 }
 
 async function showInfoEstacion(estacion) {
+  showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')
   const infoHTML = document.getElementById('info')

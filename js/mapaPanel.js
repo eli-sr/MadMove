@@ -36,29 +36,52 @@ function showPanel(panelShow, panelsHide) {
 function showLineas() {
   if (!menuOpen) openMenu()
   showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta])
+  hideDetalles()
   clearGrupo()
-  resetInfo()
 }
 
 function showParadas() {
   if (!menuOpen) openMenu()
   showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta])
+  hideDetalles()
   clearGrupo()
-  resetInfo()
 }
 
 function showBicis() {
   if (!menuOpen) openMenu()
   showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar])
+  hideDetalles()
   clearGrupo()
   setEstaciones()
-  resetInfo()
 }
 
 function showComoLlegar() {
   if (!menuOpen) openMenu()
   showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta])
+  hideDetalles()
   clearGrupo()
   resetInfo()
   comoLlegar = true
 }
+
+function showDetalles(){
+  // Panel shadow
+  panelLinea.classList.add('no-shadow')
+  panelParadas.classList.add('no-shadow')
+  panelBicicleta.classList.add('no-shadow')
+  panelComoLlegar.classList.add('no-shadow')
+  // Background
+  aside2.classList.add('show')
+}
+
+function hideDetalles(){
+  resetInfo()
+  // Panel shadow
+  panelLinea.classList.remove('no-shadow')
+  panelParadas.classList.remove('no-shadow')
+  panelBicicleta.classList.remove('no-shadow')
+  panelComoLlegar.classList.remove('no-shadow')
+  // Background
+  aside2.classList.remove('show')
+}
+

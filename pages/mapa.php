@@ -138,12 +138,12 @@
   <div id="map"></div>
   <script src="/js/api.js"></script>
   <script src="/js/mapa.js"></script>
+  <script src="/js/mapaPanel.js"></script>
   <script src="/js/mapaLineas.js"></script>
   <script src="/js/mapaParadas.js"></script>
   <script src="/js/mapaInfo.js"></script>
   <script src="/js/mapaBicis.js"></script>
   <script src="/js/mapaCL.js"></script>
-  <script src="/js/mapaPanel.js"></script>
 </body>
 
 </html>

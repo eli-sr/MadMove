@@ -39,6 +39,7 @@ function resetInfo(){
 }
 
 async function showInfoParada(parada) {
+  showDetalles()
   // Resetting info
   resetInfo()
   // Getting ID

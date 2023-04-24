@@ -77,6 +77,14 @@
     position: fixed;
     left: -350px;
     padding-left: 100px;
+    box-shadow: none;
+    background-color: transparent;
+    transition: background-color 300ms ease-out, box-shadow 300ms ease-out;
+}
+
+.aside-2.show {
+    background-color: white;
+    box-shadow: 0 0 10px -5px #333;
 }
 
 /* Panel */
@@ -84,6 +92,7 @@
 #info {
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
 .panel {
@@ -95,7 +104,11 @@
     background-color: white;
     box-shadow: 0 0 10px -5px #333;
     opacity: 0;
-    transition: opacity 100ms ease-out;
+    transition: opacity 100ms ease-out, box-shadow 300ms ease-out;
+}
+
+.panel.no-shadow {
+    box-shadow: none;
 }
 
 .panel h1 {
@@ -124,6 +137,10 @@
     align-items: center;
     justify-content: space-around;
     margin: 0 0 1rem 0;
+}
+
+/* Panel detalles */
+#detalles {
 }
 
 /* Input */
