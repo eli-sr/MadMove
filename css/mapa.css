@@ -94,6 +94,8 @@
     border-radius: 10px;
     background-color: white;
     box-shadow: 0 0 10px -5px #333;
+    opacity: 0;
+    transition: opacity 100ms ease-out;
 }
 
 .panel h1 {

@@ -18,32 +18,38 @@ function closeMenu() {
   aside2.style.left = '-300px'
 }
 
+function showPanel(panelShow, panelsHide) {
+  panelsHide.forEach((panel) => {
+    panel.style.opacity = 0
+  })
+  setTimeout(() => {
+    panelShow.style.display = 'flex'
+    panelsHide.forEach((panel) => {
+      panel.style.display = 'none'
+    })
+  }, 200)
+  setTimeout(() => {
+    panelShow.style.opacity = 1
+  }, 250)
+}
+
 function showLineas() {
   if (!menuOpen) openMenu()
-  panelLinea.style.display = 'flex'
-  panelParadas.style.display = 'none'
-  panelComoLlegar.style.display = 'none'
-  panelBicicleta.style.display = 'none'
+  showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta])
   clearGrupo()
   resetInfo()
 }
 
 function showParadas() {
   if (!menuOpen) openMenu()
-  panelLinea.style.display = 'none'
-  panelParadas.style.display = 'flex'
-  panelComoLlegar.style.display = 'none'
-  panelBicicleta.style.display = 'none'
+  showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta])
   clearGrupo()
   resetInfo()
 }
 
 function showBicis() {
   if (!menuOpen) openMenu()
-  panelLinea.style.display = 'none'
-  panelParadas.style.display = 'none'
-  panelComoLlegar.style.display = 'none'
-  panelBicicleta.style.display = 'flex'
+  showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar])
   clearGrupo()
   setEstaciones()
   resetInfo()
@@ -51,10 +57,7 @@ function showBicis() {
 
 function showComoLlegar() {
   if (!menuOpen) openMenu()
-  panelLinea.style.display = 'none'
-  panelParadas.style.display = 'none'
-  panelComoLlegar.style.display = 'flex'
-  panelBicicleta.style.display = 'none'
+  showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta])
   clearGrupo()
   resetInfo()
   comoLlegar = true
