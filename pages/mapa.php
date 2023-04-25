@@ -131,8 +131,11 @@
       </div>
     </div>
     <div id="info">
-      <h2 id='nombre'></h2>
-      <div id="detalles"></div>
+      <div class="line"></div>
+      <div class="info">
+        <h2 id='nombre'></h2>
+        <div id="detalles"></div>
+      </div>
     </div>
   </aside>
   <div id="map"></div>

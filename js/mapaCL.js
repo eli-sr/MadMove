@@ -77,6 +77,7 @@ function showSection(section) {
 }
 
 function showInfoTrip(trip) {
+  showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')
   const infoHTML = document.getElementById('info')
