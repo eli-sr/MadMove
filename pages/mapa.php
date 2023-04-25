@@ -28,6 +28,9 @@
 </head>
 
 <body>
+  <header>
+    <a href="/pages/login.php" class="boton boton-1">Iniciar sesión</a>
+  </header>
   <aside class="aside-1">
     <ul>
       <li>
