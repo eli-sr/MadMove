@@ -59,7 +59,7 @@
     margin: 0;
     white-space: nowrap;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .aside-button span {
@@ -113,6 +113,7 @@
 
 .panel h1 {
     margin: 0;
+    font-weight: 800;
 }
 
 .panel p {
@@ -130,6 +131,7 @@
 .block h2 {
     margin: 0 0 0.75rem 0;
     font-size: large;
+    font-weight: 700;
 }
 
 .block-h {
@@ -139,8 +141,11 @@
     margin: 0 0 1rem 0;
 }
 
-/* Panel detalles */
-#detalles {
+/* Panel info */
+#info h2{
+    margin: 0 0 0.75rem 0;
+    font-size: x-large;
+    font-weight: 700;
 }
 
 /* Input */
