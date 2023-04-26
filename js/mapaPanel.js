@@ -2,6 +2,7 @@ const panelLinea = document.getElementById('panelLinea')
 const panelParadas = document.getElementById('panelParadas')
 const panelComoLlegar = document.getElementById('panelComoLlegar')
 const panelBicicleta = document.getElementById('panelBicicleta')
+const panelParkings = document.getElementById('panelParkings')
 const aside2 = document.getElementsByClassName('aside-2')[0]
 
 let menuOpen = false
@@ -35,21 +36,21 @@ function showPanel(panelShow, panelsHide) {
 
 function showLineas() {
   if (!menuOpen) openMenu()
-  showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta])
+  showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta, panelParkings])
   hideDetalles()
   clearGrupo()
 }
 
 function showParadas() {
   if (!menuOpen) openMenu()
-  showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta])
+  showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta, panelParkings])
   hideDetalles()
   clearGrupo()
 }
 
 function showBicis() {
   if (!menuOpen) openMenu()
-  showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar])
+  showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar, panelParkings])
   hideDetalles()
   clearGrupo()
   setEstaciones()
@@ -57,31 +58,39 @@ function showBicis() {
 
 function showComoLlegar() {
   if (!menuOpen) openMenu()
-  showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta])
+  showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta, panelParkings])
   hideDetalles()
   clearGrupo()
-  resetInfo()
   comoLlegar = true
 }
 
-function showDetalles(){
+function showParkings() {
+  if (!menuOpen) openMenu()
+  showPanel(panelParkings, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta])
+  hideDetalles()
+  clearGrupo()
+  setParkings()
+}
+
+function showDetalles() {
   // Panel shadow
   panelLinea.classList.add('no-shadow')
   panelParadas.classList.add('no-shadow')
   panelBicicleta.classList.add('no-shadow')
   panelComoLlegar.classList.add('no-shadow')
+  panelParkings.classList.add('no-shadow')
   // Background
   aside2.classList.add('show')
 }
 
-function hideDetalles(){
+function hideDetalles() {
   resetInfo()
   // Panel shadow
   panelLinea.classList.remove('no-shadow')
   panelParadas.classList.remove('no-shadow')
   panelBicicleta.classList.remove('no-shadow')
   panelComoLlegar.classList.remove('no-shadow')
+  panelParkings.classList.remove('no-shadow')
   // Background
   aside2.classList.remove('show')
 }
-

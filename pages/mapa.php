@@ -52,6 +52,12 @@
         </button>
       </li>
       <li>
+        <button class="aside-button" onclick="showParkings()">
+          <span class="material-symbols-rounded">local_parking</span>
+          <p>Parkings</p>
+        </button>
+      </li>
+      <li>
         <button class="aside-button" onclick="showComoLlegar()">
           <span class="material-symbols-rounded">route</span>
           <p>Cómo llegar</p>
@@ -124,6 +130,10 @@
         <p class="red-emphasis">Zona no ciclable</p>
       </div>
     </div>
+    <div id="panelParkings" class="panel">
+      <h1>Parkings</h1>
+      <p>Encuentra aparcamiento cerca de ti</p>
+    </div>
     <div id="panelComoLlegar" class="panel">
       <h1>Cómo llegar</h1>
       <p>Detalles del trayecto a seguir</p>
@@ -150,6 +160,7 @@
   <script src="/js/mapaInfo.js"></script>
   <script src="/js/mapaBicis.js"></script>
   <script src="/js/mapaCL.js"></script>
+  <script src="/js/mapaParkings.js"></script>
 </body>
 
 </html>

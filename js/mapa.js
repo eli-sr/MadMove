@@ -16,7 +16,7 @@ let grupo = L.layerGroup().addTo(map)
 let grupoMC = new L.MarkerClusterGroup({
   spiderfyOnMaxZoom: false,
   showCoverageOnHover: false,
-  disableClusteringAtZoom: 15
+  disableClusteringAtZoom: 17
 })
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
