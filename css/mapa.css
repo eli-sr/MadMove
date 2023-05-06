@@ -163,6 +163,45 @@ header {
     font-weight: 700;
 }
 
+/* User menu */
+#user-menu{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 70px 20px 0 0;
+    padding: 5px;
+    z-index: 10;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px -5px #333;
+    transition: opacity 100ms ease-out;
+    list-style: none;
+}
+
+#user-menu a, #user-menu button {
+    display: block;
+    padding: .5rem .75rem .5rem .75rem;
+    border-radius: .5rem;
+    font-size: 14px;
+    text-align: center;
+    background-color: white;
+    border: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#user-menu a:hover, #user-menu button:hover {
+    background-color: #dadada;
+    border-radius: .5rem;
+}
+
+#user-menu a:visited {
+    color: black;
+}
+
 /* Keyframes */
 @keyframes openMenu{
     from {

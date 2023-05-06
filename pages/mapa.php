@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
+  $user = $_SESSION['user'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +36,27 @@
 
 <body>
   <header>
-    <a href="/pages/login.php" class="boton boton-1">Iniciar sesión</a>
+    <?php if (isset($user)) { ?>
+      <button onclick="openUserMenu()" class="boton boton-1">Usuario</button>
+    <?php } else { ?>
+      <a href="/pages/login.php" class="boton boton-1">Iniciar sesión</a>
+    <?php } ?>
   </header>
+  <?php if (isset($user)) { ?>
+    <ul id="user-menu">
+      <?php if ($user = "admin") { ?>
+        <li>
+          <a href="#">Panel admin</a>
+        </li>
+      <?php } ?>
+      <li>
+        <a href="#">Ajustes</a>
+      </li>
+      <li>
+        <button onclick="logOut()">Cerrar sesión</button>
+      </li>
+    </ul>
+  <?php } ?>
   <aside class="aside-1">
     <ul>
       <li>
@@ -153,6 +179,7 @@
   </aside>
   <div id="map"></div>
   <script src="/js/api.js"></script>
+  <script src="/js/user.js"></script>
   <script src="/js/mapa.js"></script>
   <script src="/js/mapaPanel.js"></script>
   <script src="/js/mapaLineas.js"></script>
