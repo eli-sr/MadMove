@@ -1,5 +1,4 @@
 // GLOBAL VARS
-let accessToken
 const lineaDraw = {
   type: 'Feature',
   geometry: {
@@ -24,10 +23,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map)
 
 // FUNCTIONS
-window.onload = async function () {
-  accessToken = await getAccessToken()
-}
-
 function clearGrupo () {
   grupo.clearLayers()
   grupoMC.clearLayers()

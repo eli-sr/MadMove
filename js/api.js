@@ -1,4 +1,24 @@
+// GLOBAL VARS
+let accessToken
+
+// INIT DOC
+window.onload = async function () {
+  while (!accessToken) {
+    try {
+      accessToken = await getAccessToken()
+    } catch {
+      console.error('Error retrieving accessToken from openapi.emtmadrid.com. Trying again".')
+    }
+  }
+}
+
+// FUNCTIONS
 async function getAccessToken () {
+  let token
+  // Token in cache?
+  token = sessionStorage.getItem('accessToken')
+  if (token) return token
+  // Get token from api
   const link = 'https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/'
   const response = await fetch(link, {
     method: 'GET',
@@ -10,7 +30,10 @@ async function getAccessToken () {
   })
   const json = await response.json()
   const data = json.data[0]
-  return data.accessToken
+  token = data.accessToken
+  // Save token in cache
+  sessionStorage.setItem('accessToken', token)
+  return token
 }
 
 async function getData (link, method = 'GET', body) {
