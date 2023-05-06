@@ -34,9 +34,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
     <div class="line"></div>
     <input value="Crear cuenta" class="boton" id="signup">
     <?php if (isset($_GET['login_error'])) { ?>
-      <p>
-        <?php echo "Usuario o contraseña incorrectos."; ?>
-      </p>
+      <p class="red-emphasis">Usuario o contraseña incorrectos</p>
     <?php } ?>
   </div>
 </body>

@@ -31,8 +31,7 @@ body {
 
 .card .boton {
     font-size: large;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
 }
 
 #login{
@@ -45,6 +44,11 @@ body {
 
 .card .input {
     font-size: large;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
+}
+
+.card .red-emphasis {
+    margin-bottom: 0;
+    text-align: center;
+    padding: 0.6rem;
 }
