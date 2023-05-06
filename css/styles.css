@@ -6,3 +6,64 @@ body {
     display: flex;
     margin: 0;
 }
+
+/* Input */
+
+.input {
+    border-radius: 14px;
+    padding: 7px 7px 7px 10px;
+    border: gray 2px solid;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+.input:focus{
+    outline: none;
+    border: #366fff 2px solid;
+}
+
+/* Botones */
+
+.boton{
+    background-color: #fff;
+    border-color: gray;
+    border-width: 1px;
+    color: #363636;
+    cursor: pointer;
+    justify-content: center;
+    padding: .5rem 1rem .5rem 1rem;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: .375em;
+    text-decoration-line: none;
+}
+
+.boton.boton-1 {
+    background-color: #00d1b2;
+    border-color: transparent;
+    color: #fff;
+}
+
+/* Estilos varios */
+.green-emphasis {
+    background-color: #effaf5;
+    color: #257953 !important;
+    border: 2px solid #257953;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.red-emphasis {
+    background-color: #feecf0;
+    color: #cc0f35 !important;
+    border: 2px solid #cc0f35;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.line {
+    border-bottom: 1px solid #dadce0;
+    width: 100%;
+}

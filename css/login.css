@@ -1,0 +1,50 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 0 10px -5px #333;
+    border-radius: 10px;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card h1 {
+    margin: 0 0 2rem 0;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.card .boton {
+    font-size: large;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#login{
+    margin: 1rem 0 1rem 0;
+}
+
+#signup {
+    margin: 1rem 0 0 0;
+}
+
+.card .input {
+    font-size: large;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
