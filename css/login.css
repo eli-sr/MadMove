@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80%;
 }
 
 .card {
@@ -26,16 +27,16 @@ body {
 .card h1 {
     margin: 0 0 2rem 0;
     text-align: center;
-    font-size: xx-large;
+    font-size: 24px;
 }
 
 .card .boton {
-    font-size: large;
-    padding: 1rem;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 #login{
-    margin: 1rem 0 1rem 0;
+    margin: .25rem 0 1rem 0;
 }
 
 #signup {
@@ -43,12 +44,13 @@ body {
 }
 
 .card .input {
-    font-size: large;
-    padding: 1rem;
+    font-size: 16px;
+    margin: 10px 0 20px 0;
 }
 
 .card .red-emphasis {
     margin-bottom: 0;
     text-align: center;
     padding: 0.6rem;
+    font-size: 14px;
 }
