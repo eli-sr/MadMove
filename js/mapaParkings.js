@@ -1,13 +1,13 @@
-function setParking(parking, grupo) {
+function setParking (parking, grupo) {
   const nombre = parking.name
   const coordenadas = parking.geometry.coordinates
   console.log(coordenadas)
-  var marcador = L.marker(coordenadas.reverse()).addTo(grupo)
+  const marcador = L.marker(coordenadas.reverse()).addTo(grupo)
   marcador.on('click', () => showInfoParking(parking))
   marcador.bindPopup(nombre)
 }
 
-async function setParkings() {
+async function setParkings () {
   console.log('parkingsss')
   const link = 'https://openapi.emtmadrid.es/v4/citymad/places/parkings/availability/'
   const parkings = await getData(link)
@@ -18,7 +18,7 @@ async function setParkings() {
   grupoMC.addTo(grupo)
 }
 
-async function showInfoParking(parking) {
+async function showInfoParking (parking) {
   showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')

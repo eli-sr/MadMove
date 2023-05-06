@@ -1,11 +1,11 @@
-function setZonas(zonas) {
+function setZonas (zonas) {
   zonas.forEach((zona) => {
     if (zona.canPark) L.geoJSON(zona.geometry, { color: 'green' }).addTo(grupo)
     else L.geoJSON(zona.geometry, { color: 'red' }).addTo(grupo)
   })
 }
 
-async function setEstaciones() {
+async function setEstaciones () {
   const linkZonas = 'https://openapi.emtmadrid.es/v1/transport/bicimadgo/zones/'
   const linkEst = 'https://openapi.emtmadrid.es/v1/transport/bicimad/stations/'
   const zonas = await getData(linkZonas)
@@ -17,7 +17,7 @@ async function setEstaciones() {
   grupoMC.addTo(grupo)
 }
 
-async function showInfoEstacion(estacion) {
+async function showInfoEstacion (estacion) {
   showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')

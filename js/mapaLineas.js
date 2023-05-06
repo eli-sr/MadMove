@@ -1,14 +1,14 @@
-function setLineaDraw(parada) {
+function setLineaDraw (parada) {
   const coordenadasL = parada.geometry.coordinates
   lineaDraw.geometry.coordinates.push(coordenadasL.reverse())
 }
 
-function setParadaLinea(parada) {
+function setParadaLinea (parada) {
   setParada(parada, grupo)
   setLineaDraw(parada)
 }
 
-async function setLinea(value, dir = 1) {
+async function setLinea (value, dir = 1) {
   clearGrupo()
   console.log('Mostrar cargando')
   let id = value

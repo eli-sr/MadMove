@@ -6,7 +6,7 @@ let parada1 = null
 let parada2 = null
 
 // FUNCTIONS
-async function getTrip(parada1, parada2) {
+async function getTrip (parada1, parada2) {
   const xFrom = parada1.lng
   const yFrom = parada1.lat
   const xTo = parada2.lng
@@ -28,22 +28,22 @@ async function getTrip(parada1, parada2) {
   return data
 }
 
-function getDuration(minutes) {
+function getDuration (minutes) {
   return Math.round(minutes)
 }
 
-function getDistance(km) {
+function getDistance (km) {
   return km.toFixed(2)
 }
 
-function showStep(step) {
+function showStep (step) {
   const stepData = step.properties
   const div = document.createElement('div')
   div.innerHTML = `${stepData.description}<br>`
   return div
 }
 
-function showSection(section) {
+function showSection (section) {
   console.log('sect', section)
   const div = document.createElement('div')
   switch (section.type) {
@@ -61,10 +61,11 @@ function showSection(section) {
     `
   // Showing every step info
   // Source
-  if (section.type === 'Bus')
+  if (section.type === 'Bus') {
     div.innerHTML += `
         <p>${section.source.properties.description}</p>
       `
+  }
   // Steps
   section.route.features.forEach((step) => {
     div.append(showStep(step))
@@ -76,7 +77,7 @@ function showSection(section) {
   return div
 }
 
-function showInfoTrip(trip) {
+function showInfoTrip (trip) {
   showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')
@@ -99,14 +100,14 @@ function showInfoTrip(trip) {
   infoHTML.style.display = 'flex'
 }
 
-function setLineTrip(sections) {
+function setLineTrip (sections) {
   sections.forEach((section) => {
-    let geojsonFeature = {
+    const geojsonFeature = {
       type: 'Feature',
       geometry: section.itinerary,
       properties: {}
     }
-    let color = section.type === 'Walk' ? 'orange' : 'green'
+    const color = section.type === 'Walk' ? 'orange' : 'green'
     // Add lines
     L.geoJSON(geojsonFeature, { color }).addTo(grupo)
     // Add steps
@@ -118,7 +119,7 @@ function setLineTrip(sections) {
   })
 }
 
-async function setMarks(event) {
+async function setMarks (event) {
   if (!comoLlegar) return
   if (!parada1) {
     addMarkMap(event)

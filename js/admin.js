@@ -1,9 +1,9 @@
-async function getData(link, method = 'GET') {
+async function getData (link, method = 'GET') {
   try {
     const response = await fetch(link, {
-      method: method,
+      method,
       headers: {
-        accessToken: accessToken
+        accessToken
       }
     })
     const data = await response.json()
@@ -13,7 +13,7 @@ async function getData(link, method = 'GET') {
   }
 }
 
-function insertData(data, apiLink) {
+function insertData (data, apiLink) {
   console.log('bendita data', data)
   const response = document.getElementById('server-response')
   const xhr = new XMLHttpRequest()
@@ -27,7 +27,7 @@ function insertData(data, apiLink) {
   xhr.send(JSON.stringify(data))
 }
 
-function clearData(tabla) {
+function clearData (tabla) {
   const response = document.getElementById('server-response')
   const xhr = new XMLHttpRequest()
   xhr.open('DELETE', '/pages/api/deleteData.php')
@@ -39,24 +39,24 @@ function clearData(tabla) {
   xhr.send(tabla)
 }
 
-async function cargarParadas() {
+async function cargarParadas () {
   const link = 'https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/list/'
   const apiLink = '/pages/api/insertParadas.php'
   const data = await getData(link, 'POST')
   insertData(data, apiLink)
 }
 
-async function cargarLineas() {
+async function cargarLineas () {
   const link = 'https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/info/'
   const apiLink = '/pages/api/insertLineas.php'
   const data = await getData(link)
   insertData(data, apiLink)
 }
 
-function limpiarParadas() {
+function limpiarParadas () {
   clearData('PARADAS')
 }
 
-function limpiarLineas() {
+function limpiarLineas () {
   clearData('LINEAS')
 }

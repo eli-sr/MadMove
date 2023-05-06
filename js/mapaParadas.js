@@ -2,14 +2,14 @@
 map.on('click', showParadasCursor)
 
 // FUNCTIONS
-async function setAllParadas() {
+async function setAllParadas () {
   clearGrupo()
   console.log('Mostrar cargando')
   const link = '/pages/api/getParadas.php'
   const response = await fetch(link, {
     method: 'GET',
     headers: {
-      accessToken: accessToken
+      accessToken
     }
   })
   const paradas = await response.json()
@@ -22,20 +22,20 @@ async function setAllParadas() {
   grupoMC.addTo(grupo)
 }
 
-async function getParadasPlace(place, n, range) {
+async function getParadasPlace (place, n, range) {
   if (place.length === 0) return false
-  let number = n.length === 0 ? '1' : n
+  const number = n.length === 0 ? '1' : n
   const link = `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/arroundstreet/${place}/${number}/${range}/`
   const data = await getData(link)
   return data
 }
 
-function updateRange(event) {
+function updateRange (event) {
   const perValue = document.getElementById('per-value')
   perValue.innerHTML = event.target.value
 }
 
-async function searchParadas(event) {
+async function searchParadas (event) {
   event.preventDefault()
   clearGrupo()
   const form = event.target
@@ -53,19 +53,19 @@ async function searchParadas(event) {
   grupoMC.addTo(grupo)
 }
 
-async function getParadasCursor(latlng, range) {
+async function getParadasCursor (latlng, range) {
   const { lat, lng } = latlng
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/arroundxy/${lng}/${lat}/${range}/`
   const data = await getData(link)
   return data
 }
 
-function setParadaCursor() {
+function setParadaCursor () {
   clearGrupo()
   paradaCursor = true
 }
 
-async function showParadasCursor(event) {
+async function showParadasCursor (event) {
   if (!paradaCursor) return
   paradaCursor = false
   const range = document.getElementById('per').value

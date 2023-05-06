@@ -1,4 +1,4 @@
-async function getAccessToken() {
+async function getAccessToken () {
   const link = 'https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/'
   const response = await fetch(link, {
     method: 'GET',
@@ -13,12 +13,12 @@ async function getAccessToken() {
   return data.accessToken
 }
 
-async function getData(link, method = 'GET', body) {
+async function getData (link, method = 'GET', body) {
   try {
     const request = {
-      method: method,
+      method,
       headers: {
-        accessToken: accessToken
+        accessToken
       }
     }
     if (body !== undefined && method === 'POST') request.body = JSON.stringify(body)

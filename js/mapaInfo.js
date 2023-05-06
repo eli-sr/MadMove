@@ -3,7 +3,7 @@ const nombre = document.getElementById('nombre')
 const infoHTML = document.getElementById('info')
 const detalles = document.getElementById('detalles')
 
-async function getArrives(id) {
+async function getArrives (id) {
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/stops/${id}/arrives/`
   const body = { Text_EstimationsRequired_YN: 'Y' }
   const data = await getData(link, 'POST', body)
@@ -11,14 +11,14 @@ async function getArrives(id) {
   return arrives
 }
 
-async function getInfo(id) {
+async function getInfo (id) {
   const link = `https://openapi.emtmadrid.es/v1/transport/busemtmad/stops/${id}/detail/`
   const data = await getData(link)
   if (data[0].stops === undefined) return null
   return data[0].stops[0]
 }
 
-function getEA(estimateArrive) {
+function getEA (estimateArrive) {
   let string
   if (estimateArrive === 999999) string = ' indefinido'
   else if (estimateArrive >= 60) string = Math.floor(estimateArrive / 60) + ' min'
@@ -26,19 +26,19 @@ function getEA(estimateArrive) {
   return string
 }
 
-function getDB(DistanceBus) {
+function getDB (DistanceBus) {
   let string
   if (DistanceBus >= 1000) string = Math.floor(DistanceBus / 1000) + ' km'
   else string = DistanceBus + ' m'
   return string
 }
 
-function resetInfo(){
+function resetInfo () {
   infoHTML.style.display = 'none'
   detalles.innerText = ''
 }
 
-async function showInfoParada(parada) {
+async function showInfoParada (parada) {
   showDetalles()
   // Resetting info
   resetInfo()
@@ -53,7 +53,7 @@ async function showInfoParada(parada) {
   if (!info) {
     nombre.innerText = parada.name
     const div = document.createElement('div')
-    div.innerHTML = `No hay datos disponibles <br><br>`
+    div.innerHTML = 'No hay datos disponibles <br><br>'
     detalles.append(div)
     infoHTML.style.display = 'flex'
     return
