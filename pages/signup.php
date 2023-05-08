@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <!-- CSS -->
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/login.css">
-  <title>Iniciar sesión</title>
+  <title>Crear cuenta</title>
 </head>
 
 <body>
@@ -34,20 +34,31 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
         class="ccompli1" fill="#FF7917"></path>
     </svg>
   </div>
-  <h1>Iniciar sesión</h1>
+  <h1>Crear cuenta</h1>
   <div class="card">
-    <form action="/pages/api/login.php" method="post" class="login">
-      <label for="user">Nombre de usuario</label>
-      <input type="text" id="user" name="user" placeholder="jacobmiller96" class="input">
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" name="password" placeholder="********" class="input">
-      <input type="submit" value="Continuar" class="boton boton-1" id="login">
+    <form action="/pages/api/signup.php" method="post" class="signup">
+      <div class="item">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Jacob" class="input" required>
+      </div>
+      <div class="item">
+        <label for="surname">Apellidos</label>
+        <input type="text" id="surname" name="surname" placeholder="Miller" class="input">
+      </div>
+      <div class="item">
+        <label for="user">Nombre de usuario</label>
+        <input type="text" id="user" name="user" placeholder="jacobmiller96" class="input" required>
+      </div class="item">
+      <div class="item">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="********" class="input" required>
+      </div>
+      <div class="item">
+        <label for="password-confirmation">Confirma tu contraseña</label>
+        <input type="password" id="password-confirmation" name="password-confirmation" placeholder="********" class="input" required>
+      </div>
+      <input type="submit" value="Continuar" class="boton boton-1 item" id="login">
     </form>
-    <div class="line"></div>
-    <a href="/pages/signup.php" class="boton" id="signup">Crear cuenta</a>
-    <?php if (isset($_GET['login_error'])) { ?>
-      <p class="red-emphasis">Usuario o contraseña incorrectos</p>
-    <?php } ?>
   </div>
 </body>
 
