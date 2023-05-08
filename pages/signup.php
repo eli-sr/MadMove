@@ -59,6 +59,12 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </div>
       <input type="submit" value="Continuar" class="boton boton-1 item" id="login">
     </form>
+    <?php if (isset($_GET['password_error'])) { ?>
+      <p class="red-emphasis">Las contraseñas no coinciden</p>
+    <?php } ?>
+    <?php if (isset($_GET['user_error'])) { ?>
+      <p class="red-emphasis">El nombre de usuario no está disponible</p>
+    <?php } ?>
   </div>
 </body>
 
