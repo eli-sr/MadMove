@@ -26,8 +26,7 @@ body {
 
 .boton{
     background-color: #fff;
-    border-color: gray;
-    border-width: 1px;
+    border: 1px solid gray;
     color: #363636;
     cursor: pointer;
     justify-content: center;
@@ -38,6 +37,7 @@ body {
     font-size: 14px;
     border-radius: .375em;
     text-decoration-line: none;
+    display: block;
 }
 
 .boton.boton-1 {

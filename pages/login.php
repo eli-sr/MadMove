@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
-  header("Location: /index.php");
+  header("Location: /pages/mapa.php");
   exit();
 }
 ?>
@@ -42,7 +42,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <input type="submit" value="Continuar" class="boton boton-1" id="login">
     </form>
     <div class="line"></div>
-    <input value="Crear cuenta" class="boton" id="signup">
+    <a href="#" class="boton" id="signup">Crear cuenta</a>
     <?php if (isset($_GET['login_error'])) { ?>
       <p class="red-emphasis">Usuario o contraseña incorrectos</p>
     <?php } ?>
