@@ -116,6 +116,8 @@ function setLineTrip (sections) {
         layer.bindPopup(feature.properties.description)
       }
     }).addTo(grupo)
+
+    map.fitBounds(grupo.getBounds())
   })
 }
 
