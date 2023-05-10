@@ -20,4 +20,6 @@ async function setLinea (value, dir = 1) {
   paradas.forEach((parada) => setParadaLinea(parada))
   L.geoJSON(lineaDraw, { color: 'green' }).addTo(grupo)
   grupo.addTo(map)
+
+  map.fitBounds(grupo.getBounds())
 }

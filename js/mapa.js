@@ -11,7 +11,7 @@ let comoLlegar = false
 
 // INIT MAP
 const map = L.map('map').setView([40.416, -3.7], 13)
-const grupo = L.layerGroup().addTo(map)
+const grupo = L.featureGroup().addTo(map)
 const grupoMC = new L.MarkerClusterGroup({
   spiderfyOnMaxZoom: false,
   showCoverageOnHover: false,
