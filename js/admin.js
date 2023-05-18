@@ -60,3 +60,29 @@ function limpiarParadas () {
 function limpiarLineas () {
   clearData('LINEAS')
 }
+
+function deleteUser (username) {
+  console.log(username, 'cheee')
+  if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+    // Realizar una solicitud AJAX para eliminar el usuario
+    const xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          location.reload()
+        }
+        if (xhr.status === 500) {
+          const errorHTML = document.querySelector('.red-emphasis')
+          errorHTML.textContent = 'Ha ocurrido un error inseperado'
+        }
+      }
+    }
+    xhr.open('DELETE', '/pages/api/deleteUser.php?user=' + username, true)
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+    xhr.send()
+  }
+}
+
+function editUser () {
+
+}

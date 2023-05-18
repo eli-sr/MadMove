@@ -32,6 +32,8 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <!-- CSS -->
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/mapa.css">
+  <!-- JS -->
+  <script src="/js/api.js"></script>
 </head>
 
 <body>
@@ -180,7 +182,6 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
     </div>
   </aside>
   <div id="map"></div>
-  <script src="/js/api.js"></script>
   <script src="/js/user.js"></script>
   <script src="/js/mapa.js"></script>
   <script src="/js/mapaPanel.js"></script>
