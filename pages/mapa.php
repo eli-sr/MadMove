@@ -37,16 +37,18 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
 <body>
   <header>
     <?php if (isset($user)) { ?>
-      <button onclick="openUserMenu()" class="boton boton-1">Usuario</button>
+      <button onclick="openUserMenu()" class="boton boton-1">
+        <?php echo $user ?>
+      </button>
     <?php } else { ?>
       <a href="/pages/login.php" class="boton boton-1">Iniciar sesión</a>
     <?php } ?>
   </header>
   <?php if (isset($user)) { ?>
     <ul id="user-menu">
-      <?php if ($user = "admin") { ?>
+      <?php if ($user == "admin") { ?>
         <li>
-          <a href="#">Panel admin</a>
+          <a href="/pages/admin/">Panel admin</a>
         </li>
       <?php } ?>
       <li>
