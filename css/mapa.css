@@ -61,6 +61,15 @@ header {
     border: 0;
     cursor: pointer;
     color: #5c5c5c;
+    text-decoration-line: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside-button.disable{
+    opacity: 0.5;
 }
 
 .aside-button p {

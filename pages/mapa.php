@@ -75,24 +75,45 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
           <p>Paradas</p>
         </button>
       </li>
-      <li>
-        <button class="aside-button" onclick="showBicis()">
-          <span class="material-symbols-rounded">pedal_bike</span>
-          <p>Bicicletas</p>
-        </button>
-      </li>
-      <li>
-        <button class="aside-button" onclick="showParkings()">
-          <span class="material-symbols-rounded">local_parking</span>
-          <p>Parkings</p>
-        </button>
-      </li>
-      <li>
-        <button class="aside-button" onclick="showComoLlegar()">
-          <span class="material-symbols-rounded">route</span>
-          <p>Cómo llegar</p>
-        </button>
-      </li>
+      <?php if (isset($user)) { ?>
+        <li>
+          <button class="aside-button" onclick="showBicis()">
+            <span class="material-symbols-rounded">pedal_bike</span>
+            <p>Bicicletas</p>
+          </button>
+        </li>
+        <li>
+          <button class="aside-button" onclick="showParkings()">
+            <span class="material-symbols-rounded">local_parking</span>
+            <p>Parkings</p>
+          </button>
+        </li>
+        <li>
+          <button class="aside-button" onclick="showComoLlegar()">
+            <span class="material-symbols-rounded">route</span>
+            <p>Cómo llegar</p>
+          </button>
+        </li>
+      <?php } else { ?>
+        <li>
+          <a href="/pages/login.php"class="aside-button disable">
+            <span class="material-symbols-rounded">pedal_bike</span>
+            <p>Bicicletas</p>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/login.php"class="aside-button disable">
+            <span class="material-symbols-rounded">local_parking</span>
+            <p>Parkings</p>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/login.php" class="aside-button disable">
+            <span class="material-symbols-rounded">route</span>
+            <p>Cómo llegar</p>
+          </a>
+        </li>
+      <?php } ?>
     </ul>
   </aside>
   <aside class="aside-2">
@@ -180,6 +201,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
         <div id="detalles"></div>
       </div>
     </div>
+
   </aside>
   <div id="map"></div>
   <script src="/js/user.js"></script>
