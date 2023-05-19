@@ -1,5 +1,9 @@
-// VARS
+// GLOBAL CONST
 const reserva = {}
+const modal = document.querySelector('.modal')
+const reservar = document.getElementById('reservar')
+const resOk = document.getElementById('res-ok')
+const resNok = document.getElementById('res-nok')
 
 function setParking (parking, grupo) {
   const nombre = parking.name
@@ -19,33 +23,49 @@ async function setParkings () {
 }
 
 function downloadReserva () {
-  const modal = document.querySelector('.modal')
-  modal.style.display = 'none'
+  hideAllResevar()
+}
+
+function cancelarReserva (e) {
+  e.preventDefault()
+  const result = confirm('Desea cancelar todas sus reservas?')
+  if (!result) return
+  fetch('/pages/api/deleteReserva.php', {
+    method: 'POST'
+  })
 }
 
 async function makeReserva (e) {
   e.preventDefault()
-  const reservar = document.getElementById('reservar')
-  const resOk = document.getElementById('res-ok')
   // Get data
   const formData = new FormData(e.target)
   reserva.fecha = formData.get('fecha')
   reserva.hora = formData.get('hora')
   // Upload to DB
   const link = '/pages/api/postReserva.php'
-  const result = await getData(link, 'POST', reserva)
-
-  // Change menu
+  const response = await fetch(link, {
+    method: 'POST',
+    body: JSON.stringify(reserva)
+  })
+  const result = await response.json()
   reservar.style.display = 'none'
-  resOk.style.display = 'flex'
+  if (!result.ok) {
+    resNok.style.display = 'flex'
+  } else {
+    resOk.style.display = 'flex'
+  }
 }
 
 function showReservar (id) {
-  const modal = document.querySelector('.modal')
-  const reservar = document.getElementById('reservar')
   modal.style.display = 'flex'
   reservar.style.display = 'flex'
-  reserva.id = id
+  reserva.parkingId = id
+}
+
+function hideAllResevar () {
+  modal.style.display = 'none'
+  reservar.style.display = 'none'
+  resOk.style.display = 'none'
 }
 
 async function showInfoParking (parking) {
@@ -68,7 +88,7 @@ async function showInfoParking (parking) {
   `
   if (parking.freeParking) {
     reservaButton.style.display = 'flex'
-    reservaButton.onclick = showReservar(parking.id)
+    reservaButton.onclick = () => showReservar(parking.id)
   }
   infoHTML.style.display = 'flex'
 }

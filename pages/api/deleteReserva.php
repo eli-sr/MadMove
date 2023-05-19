@@ -8,13 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         exit(-1);
     }
-    // Fetch data
-    $entityBody = file_get_contents('php://input');
-    $data = json_decode($entityBody);
-
-    $parkingId = $data->parkingId;
-    $fecha = $data->fecha;
-    $hora = $data->hora;
 
     // Establecer conexion
     // params: host,user,pass,dbname
@@ -31,23 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userId = $fila["ID"];
 
     // Comprobar reserva pendiente
-    $query = "SELECT done FROM RESERVAS WHERE userId='" . $userId . "'";
+    $query = "SELECT id FROM RESERVAS WHERE userId='" . $userId . "'";
     $resultado = mysqli_query($conn, $query);
-    // print_r($resultado);
     $fila = mysqli_fetch_assoc($resultado);
-    if ($fila == null) {
-        echo '{"ok":true}';
-    } else {
-        $done = $fila["done"];
-        if (!$done) {
-            echo '{"ok":false,"msg":"Ya hay activa una reserva pendiente"}';
-            exit(-1);
-        }
-    }
-
-    // Insertar data 
-    $stmt = $conn->prepare("INSERT INTO RESERVAS(parkingId,date,time,userId,done)VALUES (?,?,?,?,0)");
-    $stmt->bind_param("issi", $parkingId, $fecha, $hora, $userId);
+    if ($fila == null) { // No hay reservas
+        exit(0);
+    } 
+    // Eliminar data 
+    print_r($fila);
+    $id = $fila["id"];
+    $stmt = $conn->prepare("DELETE FROM RESERVAS WHERE id = ?");
+    $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
 

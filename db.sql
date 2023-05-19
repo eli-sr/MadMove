@@ -27,6 +27,8 @@ CREATE TABLE RESERVAS (
     `id` INT NOT NULL AUTO_INCREMENT ,
     `date` VARCHAR(20) NOT NULL ,
     `time` VARCHAR(20) NOT NULL,
+    `parkingId` INT NOT NULL ,
     `userId` INT NOT NULL ,
+    `done` BOOLEAN NOT NULL ,
     PRIMARY KEY (`id`)
 );

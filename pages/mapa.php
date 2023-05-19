@@ -184,6 +184,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
     <div id="panelParkings" class="panel">
       <h1>Parkings</h1>
       <p>Encuentra aparcamiento cerca de ti</p>
+      <form onsubmit="cancelarReserva(event)">
+        <button class="boton boton-1" type="submit">Cancelar reservas activas</button>
+      </form>
     </div>
     <div id="panelComoLlegar" class="panel">
       <h1>Cómo llegar</h1>
@@ -214,9 +217,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
         <p>La reserva estará disponible durante media hora, si el usuario no accede al estacionamiento, la reserva se
           cancelará.</p>
         <p>Día:</p>
-        <input type="date" name="fecha" required/>
+        <input type="date" name="fecha" required />
         <p>Hora:</p>
-        <input type="time" name="hora" required/>
+        <input type="time" name="hora" required />
         <button class="boton boton-1">Reservar</button>
       </form>
     </div>
@@ -224,6 +227,10 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <h1>Reserva completada</h1>
       <p>La reserva se ha realizado con éxito</p>
       <button class="boton boton-1" onclick="downloadReserva()">Descargar resguardo</button>
+    </div>
+    <div id="res-nok" class="modal-card">
+      <h1>Reserva fallida</h1>
+      <p>Ya existe una reserva activa pendiente</p>
     </div>
   </div>
   <script src="/js/user.js"></script>
