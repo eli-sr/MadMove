@@ -23,7 +23,7 @@ async function setParkings () {
 }
 
 async function downloadReserva () {
-  hideAllResevar()
+  hideAllReservar()
   if (Object.entries(reserva).length === 0) return
   // Generar pdf
   console.log('hacer pdf con:', reserva)
@@ -86,10 +86,11 @@ function showReservar (parking) {
   reserva.espacioTotal = parking.parkingSpaces
 }
 
-function hideAllResevar () {
+function hideAllReservar () {
   modal.style.display = 'none'
   reservar.style.display = 'none'
   resOk.style.display = 'none'
+  resNok.style.display = 'none'
 }
 
 async function showInfoParking (parking) {

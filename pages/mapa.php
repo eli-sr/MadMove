@@ -190,7 +190,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
     </div>
     <div id="panelComoLlegar" class="panel">
       <h1>Cómo llegar</h1>
-      <p>Detalles del trayecto a seguir</p>
+      <p>Seleccione dos puntos en el mapa para conocer el trayecto a seguir</p>
       <div class="block">
         <h2>Leyenda</h2>
         <p class="green-emphasis">Bus</p>
@@ -209,6 +209,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <div id="map"></div>
   <div class="modal">
     <div id="reservar" class="modal-card">
+      <button onclick="hideAllReservar()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <form onsubmit="makeReserva(event)">
         <h1>Reservar parking</h1>
         <p>Parking: Nombre del parking</p>
@@ -224,11 +227,17 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </form>
     </div>
     <div id="res-ok" class="modal-card">
+      <button onclick="hideAllReservar()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Reserva completada</h1>
       <p>La reserva se ha realizado con éxito</p>
       <button class="boton boton-1" onclick="downloadReserva()">Descargar resguardo</button>
     </div>
     <div id="res-nok" class="modal-card">
+      <button onclick="hideAllReservar()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Reserva fallida</h1>
       <p>Ya existe una reserva activa pendiente</p>
     </div>

@@ -46,6 +46,16 @@ body {
     color: #fff;
 }
 
+.close-button {
+    color: gray;
+    background: 0;
+    border: 0;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+}
+
 /* Estilos varios */
 .green-emphasis {
     background-color: #effaf5;
