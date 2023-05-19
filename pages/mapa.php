@@ -209,7 +209,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <div id="map"></div>
   <div class="modal">
     <div id="reservar" class="modal-card">
-      <form action="/pages/api/postReserva.php" method="post" onsubmit="makeReserva(event)">
+      <form onsubmit="makeReserva(event)">
         <h1>Reservar parking</h1>
         <p>Parking: Nombre del parking</p>
         <p>Dirección: Dirección del parking</p>

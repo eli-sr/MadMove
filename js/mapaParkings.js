@@ -22,8 +22,11 @@ async function setParkings () {
   grupoMC.addTo(grupo)
 }
 
-function downloadReserva () {
+async function downloadReserva () {
   hideAllResevar()
+  if (Object.entries(reserva).length === 0) return
+  // Generar pdf
+  console.log('hacer pdf con:', reserva)
 }
 
 function cancelarReserva (e) {
@@ -35,12 +38,29 @@ function cancelarReserva (e) {
   })
 }
 
+async function getUser () {
+  const data = await fetch('/pages/api/getUser.php', {
+    method: 'GET'
+  })
+  try {
+    return await data.json()
+  } catch {
+    return null
+  }
+}
+
 async function makeReserva (e) {
   e.preventDefault()
   // Get data
   const formData = new FormData(e.target)
   reserva.fecha = formData.get('fecha')
   reserva.hora = formData.get('hora')
+  // Get user
+  const user = await getUser()
+  console.log('mira el user', user)
+  if (user) {
+    reserva.user = user
+  }
   // Upload to DB
   const link = '/pages/api/postReserva.php'
   const response = await fetch(link, {
@@ -56,10 +76,14 @@ async function makeReserva (e) {
   }
 }
 
-function showReservar (id) {
+function showReservar (parking) {
   modal.style.display = 'flex'
   reservar.style.display = 'flex'
-  reserva.parkingId = id
+  reserva.parkingId = parking.id
+  reserva.direccion = parking.address
+  reserva.nombre = parking.name
+  reserva.espacioLibre = parking.freeParking
+  reserva.espacioTotal = parking.parkingSpaces
 }
 
 function hideAllResevar () {
@@ -88,7 +112,7 @@ async function showInfoParking (parking) {
   `
   if (parking.freeParking) {
     reservaButton.style.display = 'flex'
-    reservaButton.onclick = () => showReservar(parking.id)
+    reservaButton.onclick = () => showReservar(parking)
   }
   infoHTML.style.display = 'flex'
 }
