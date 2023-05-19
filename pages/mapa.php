@@ -96,13 +96,13 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
         </li>
       <?php } else { ?>
         <li>
-          <a href="/pages/login.php"class="aside-button disable">
+          <a href="/pages/login.php" class="aside-button disable">
             <span class="material-symbols-rounded">pedal_bike</span>
             <p>Bicicletas</p>
           </a>
         </li>
         <li>
-          <a href="/pages/login.php"class="aside-button disable">
+          <a href="/pages/login.php" class="aside-button disable">
             <span class="material-symbols-rounded">local_parking</span>
             <p>Parkings</p>
           </a>
@@ -199,11 +199,33 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <div class="info">
         <h2 id='nombre'></h2>
         <div id="detalles"></div>
+        <button id="botonReservar" class="boton boton-1">Reservar parking</button>
       </div>
     </div>
-
   </aside>
   <div id="map"></div>
+  <div class="modal">
+    <div id="reservar" class="modal-card">
+      <form action="/pages/api/postReserva.php" method="post" onsubmit="makeReserva(event)">
+        <h1>Reservar parking</h1>
+        <p>Parking: Nombre del parking</p>
+        <p>Dirección: Dirección del parking</p>
+        <p>Estado: Disponible</p>
+        <p>La reserva estará disponible durante media hora, si el usuario no accede al estacionamiento, la reserva se
+          cancelará.</p>
+        <p>Día:</p>
+        <input type="date" name="fecha" required/>
+        <p>Hora:</p>
+        <input type="time" name="hora" required/>
+        <button class="boton boton-1">Reservar</button>
+      </form>
+    </div>
+    <div id="res-ok" class="modal-card">
+      <h1>Reserva completada</h1>
+      <p>La reserva se ha realizado con éxito</p>
+      <button class="boton boton-1" onclick="downloadReserva()">Descargar resguardo</button>
+    </div>
+  </div>
   <script src="/js/user.js"></script>
   <script src="/js/mapa.js"></script>
   <script src="/js/mapaPanel.js"></script>

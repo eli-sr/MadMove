@@ -22,3 +22,11 @@ CREATE TABLE PARADAS (
     `geometry` JSON NOT NULL ,
     PRIMARY KEY (`id`)
 );
+
+CREATE TABLE RESERVAS (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `date` VARCHAR(20) NOT NULL ,
+    `time` VARCHAR(20) NOT NULL,
+    `userId` INT NOT NULL ,
+    PRIMARY KEY (`id`)
+);

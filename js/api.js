@@ -44,11 +44,13 @@ async function getData (link, method = 'GET', body) {
         accessToken
       }
     }
-    if (body !== undefined && method === 'POST') request.body = JSON.stringify(body)
+    if (body !== undefined && method.toUpperCase() === 'POST') {
+      request.body = JSON.stringify(body)
+    }
     const response = await fetch(link, request)
     const data = await response.json()
     return data.data
   } catch (error) {
-    console.error(error)
+    throw new Error('getData: ' + error)
   }
 }
