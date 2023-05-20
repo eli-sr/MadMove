@@ -129,6 +129,7 @@ header {
     box-shadow: 0 0 10px -5px #333;
     opacity: 0;
     transition: opacity 100ms ease-out, box-shadow 300ms ease-out;
+    position: relative;
 }
 
 .panel.no-shadow {

@@ -15,8 +15,8 @@ function openMenu () {
 
 function closeMenu () {
   menuOpen = false
-  aside2.style.animation = 'closeMenu 500ms forwards'
-  aside2.style.left = '-300px'
+  aside2.style.animation = 'closeMenu 500ms'
+  setTimeout(() => (aside2.style.left = '-300px'), 500)
 }
 
 function showPanel (panelShow, panelsHide) {

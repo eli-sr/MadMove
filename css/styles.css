@@ -50,10 +50,10 @@ body {
     color: gray;
     background: 0;
     border: 0;
-    position: relative;
-    display: flex;
-    justify-content: right;
+    position: absolute;
     cursor: pointer;
+    right: 1rem;
+    top: 1rem;
 }
 
 /* Estilos varios */

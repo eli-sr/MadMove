@@ -120,6 +120,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   </aside>
   <aside class="aside-2">
     <div id="panelLinea" class="panel">
+      <button onclick="closeMenu()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Líneas</h1>
       <p>Horarios y recorridos de las líneas de autobuses</p>
       <div class="block">
@@ -146,6 +149,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </div>
     </div>
     <div id="panelParadas" class="panel">
+      <button onclick="closeMenu()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Paradas</h1>
       <p>Horarios y líneas de las paradas de autobús</p>
       <div class="block">
@@ -175,6 +181,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </div>
     </div>
     <div id="panelBicicleta" class="panel">
+      <button onclick="closeMenu()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Bicicletas</h1>
       <p>Detalles de las estaciones y las bicicletas disponibles</p>
       <div class="block">
@@ -184,6 +193,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </div>
     </div>
     <div id="panelParkings" class="panel">
+      <button onclick="closeMenu()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Parkings</h1>
       <p>Encuentra aparcamiento cerca de ti</p>
       <form onsubmit="cancelarReserva(event)">
@@ -191,6 +203,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </form>
     </div>
     <div id="panelComoLlegar" class="panel">
+      <button onclick="closeMenu()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
       <h1>Cómo llegar</h1>
       <p>Seleccione dos puntos en el mapa para conocer el trayecto a seguir</p>
       <div class="block">
