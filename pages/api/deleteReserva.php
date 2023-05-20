@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userId = $fila["ID"];
 
     // Comprobar reserva pendiente
-    $query = "SELECT id FROM RESERVAS WHERE userId='" . $userId . "'";
+    $query = "SELECT id FROM RESERVAS WHERE userId='" . $userId . "' AND done=0";
     $resultado = mysqli_query($conn, $query);
     $fila = mysqli_fetch_assoc($resultado);
     if ($fila == null) { // No hay reservas
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Eliminar data 
     print_r($fila);
     $id = $fila["id"];
-    $stmt = $conn->prepare("DELETE FROM RESERVAS WHERE id = ?");
+    $stmt = $conn->prepare("UPDATE RESERVAS SET done=1 WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();

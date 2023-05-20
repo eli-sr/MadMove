@@ -31,9 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userId = $fila["ID"];
 
     // Comprobar reserva pendiente
-    $query = "SELECT done FROM RESERVAS WHERE userId='" . $userId . "'";
+    $query = "SELECT done FROM RESERVAS WHERE userId='" . $userId . "' AND done = 0";
     $resultado = mysqli_query($conn, $query);
-    // print_r($resultado);
     $fila = mysqli_fetch_assoc($resultado);
     if ($fila == null) {
         echo '{"ok":true}';
