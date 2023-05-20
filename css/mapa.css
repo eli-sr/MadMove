@@ -212,6 +212,10 @@ header {
     color: black;
 }
 
+#botonReservar {
+    display: none;
+}
+
 /* Keyframes */
 @keyframes openMenu{
     from {
