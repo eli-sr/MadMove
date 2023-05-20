@@ -20,12 +20,12 @@ if ($user != 'admin') {
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/admin.css">
   <link rel="stylesheet" href="/css/login.css">
   <!-- JS -->
   <script src="/js/api.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -83,6 +83,8 @@ if ($user != 'admin') {
         ?>
       </tbody>
     </table>
+    <canvas id="myChart"></canvas>
+
     <div class="modal">
       <div class="modal-card">
         <button onclick="closeEdit()" class="close-button">

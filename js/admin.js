@@ -61,6 +61,8 @@ function limpiarLineas () {
   clearData('LINEAS')
 }
 
+// EDIT USERS
+
 function deleteUser (username) {
   console.log(username, 'cheee')
   if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
@@ -117,4 +119,56 @@ function editUser (id, username, name, surname, password) {
     userDOM.readOnly = false
     userDOM.style.opacity = 1
   }
+}
+
+// CHARTS
+
+window.onload = async () => {
+  await generateChart()
+}
+
+async function generateChart () {
+  // const labels = ['Enero', 'Febrero', 'Marzo']
+  // const data = [10, 5, 8]
+
+  const response = await fetch('/pages/api/getReservas.php', {
+    method: 'GET'
+  })
+
+  const result = await response.json()
+  console.log(result)
+
+  const labels = result.map((parking) => {
+    return parking.parkingId
+  })
+  const data = result.map((parking) => {
+    return parking.num
+  })
+
+  console.log(labels, data)
+
+  // Crea el gráfico
+  const ctx = document.getElementById('myChart').getContext('2d')
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Ventas',
+          data,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  })
 }
