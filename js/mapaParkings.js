@@ -22,11 +22,11 @@ async function setParkings () {
   grupoMC.addTo(grupo)
 }
 
-async function downloadReserva () {
+function downloadReserva () {
   hideAllReservar()
   if (Object.entries(reserva).length === 0) return
   // Generar pdf
-  console.log('hacer pdf con:', reserva)
+  GeneratePDF(reserva)
 }
 
 function cancelarReserva (e) {
@@ -57,7 +57,6 @@ async function makeReserva (e) {
   reserva.hora = formData.get('hora')
   // Get user
   const user = await getUser()
-  console.log('mira el user', user)
   if (user) {
     reserva.user = user
   }

@@ -22,6 +22,8 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <!-- jsPDF -->
+  <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
   <!-- Icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -242,7 +244,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <p>Ya existe una reserva activa pendiente</p>
     </div>
   </div>
+  <!-- JS -->
   <script src="/js/user.js"></script>
+  <script src="/js/pdf.js"></script>
   <script src="/js/mapa.js"></script>
   <script src="/js/mapaPanel.js"></script>
   <script src="/js/mapaLineas.js"></script>
