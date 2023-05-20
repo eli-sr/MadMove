@@ -57,7 +57,7 @@ body {
     margin-top: 200px;
 }
 
-.card .signup {
+.signup {
     display: grid;
     grid-template-columns: repeat(2, 200px);
     gap: 10px;

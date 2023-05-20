@@ -89,6 +89,8 @@ body {
     justify-content: center;
     z-index: 10;
     background-color: rgba(91, 112, 131, 0.4);
+    top: 0;
+    left: 0;
 }
 
 .modal-card{
@@ -100,4 +102,5 @@ body {
     background-color: white;
     box-shadow: 0 0 10px -5px #333;
     max-width: 450px;
+    position: relative;
 }
