@@ -16,8 +16,14 @@ if ($user != 'admin') {
 <head>
   <meta charset="UTF-8">
   <title>Admin</title>
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
   <!-- CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/login.css">
   <!-- JS -->
   <script src="/js/api.js"></script>
 </head>
@@ -45,6 +51,7 @@ if ($user != 'admin') {
     <table>
       <thead>
         <tr>
+          <th>ID</th>
           <th>Username</th>
           <th>Password</th>
           <th>Name</th>
@@ -56,16 +63,19 @@ if ($user != 'admin') {
         $query = "SELECT * FROM USUARIOS";
         $resultado = executeQuery($query);
         while ($fila = mysqli_fetch_assoc($resultado)) {
+          $id = $fila['ID'];
           $username = $fila['USER'];
           $password = $fila['PASSWORD'];
           $name = $fila['NAME'];
           $surname = $fila['SURNAME'];
           echo '<tr>';
+          echo '<td>' . $id . '</td>';
           echo '<td>' . $username . '</td>';
           echo '<td>' . $password . '</td>';
           echo '<td>' . $name . '</td>';
           echo '<td>' . $surname . '</td>';
-          echo '<td><button onclick=\'editUser("' . $username . '")\'>Editar</button></td>';
+          echo '<td><button onclick=\'editUser("' . $id . '","' . $username . '","' . $name . '","' . $surname . '","' . $password . '")\'>';
+          echo 'Editar</button></td>';
           if ($fila['USER'] != 'admin')
             echo '<td><button onclick=\'deleteUser("' . $username . '")\'>Eliminar</button></td>';
           echo '</tr>';
@@ -73,6 +83,39 @@ if ($user != 'admin') {
         ?>
       </tbody>
     </table>
+    <div class="modal">
+      <div class="modal-card">
+        <button onclick="closeEdit()" class="close-button">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+        <form action="/pages/api/updateUser.php" method="post" class="signup">
+          <div class="item">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Jacob" class="input" required>
+          </div>
+          <div class="item">
+            <label for="surname">Apellidos</label>
+            <input type="text" id="surname" name="surname" placeholder="Miller" class="input">
+          </div>
+          <div class="item">
+            <label for="user">Nombre de usuario</label>
+            <input type="text" id="user" name="user" placeholder="jacobmiller96" class="input" required>
+          </div class="item">
+          <div class="item">
+            <label for="password">Contraseña</label>
+            <input type="text" id="password" name="password" placeholder="********" class="input" required>
+          </div>
+          <div class="item">
+            <label for="password-confirmation">Confirma tu contraseña</label>
+            <input type="text" id="password-confirmation" name="password-confirmation" placeholder="********"
+              class="input" required>
+          </div>
+          <input type="submit" value="Aceptar" class="boton boton-1 item" id="login">
+          <input type="text" name="id" value="" style="display:none" />
+        </form>
+
+      </div>
+    </div>
   </main>
 
   <!-- Body Scripts -->

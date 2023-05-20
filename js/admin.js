@@ -83,6 +83,38 @@ function deleteUser (username) {
   }
 }
 
-function editUser () {
+function closeEdit () {
+  const modal = document.querySelector('.modal')
+  const card = document.querySelector('.modal-card')
+  modal.style.display = 'none'
+  card.style.display = 'none'
+}
 
+function editUser (id, username, name, surname, password) {
+  const modal = document.querySelector('.modal')
+  const card = document.querySelector('.modal-card')
+  const nameDOM = document.querySelector("input[name='name']")
+  const surnameDOM = document.querySelector("input[name='surname']")
+  const userDOM = document.querySelector("input[name='user']")
+  const passDOM = document.querySelector("input[name='password']")
+  const passConDOM = document.querySelector("input[name='password-confirmation']")
+  const idDOM = document.querySelector("input[name='id']")
+  // console.log(idDOM)
+  //
+  modal.style.display = 'flex'
+  card.style.display = 'flex'
+  userDOM.value = username
+  nameDOM.value = name
+  surnameDOM.value = surname
+  passDOM.value = password
+  passConDOM.value = password
+  idDOM.value = id
+
+  if (username === 'admin') {
+    userDOM.readOnly = true
+    userDOM.style.opacity = 0.5
+  } else {
+    userDOM.readOnly = false
+    userDOM.style.opacity = 1
+  }
 }
