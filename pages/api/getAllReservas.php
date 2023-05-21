@@ -13,16 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     // Select data
     echo "[";
-    $query = "SELECT parkingId, COUNT(id) num
-              FROM RESERVAS
-              GROUP BY parkingId";
+    $query = "SELECT * FROM RESERVAS";
     $resultado = executeQuery($query);
     // while
     $totalFilas = mysqli_num_rows($resultado);
     $contador = 0;
     while ($fila = mysqli_fetch_assoc($resultado)) {
-        echo '{"parkingId":' . $fila['parkingId'] .
-            ',"num":' . $fila['num'] .
+        echo '{"id":' . $fila['id'] .
+            ',"date":"' . $fila['date'] .
+            '","time":"' . $fila['time'] .
+            '","parkingId":' . $fila['parkingId'] .
+            ',"userId":' . $fila['userId'] .
+            ',"done":' . $fila['done'] .
             '}';
         $contador++;
         // Verificar si es la última fila

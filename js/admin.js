@@ -172,3 +172,29 @@ async function generateChart () {
     }
   })
 }
+
+async function downloadReservasCSV () {
+  const filename = 'reservas.csv'
+  const data = await fetch('/pages/api/getAllReservas.php', { method: 'GET' })
+  const json = await data.json()
+  const csv = json2csv(json)
+  const link = document.createElement('a')
+  link.style.display = 'none'
+  link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv)
+  link.download = filename
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
+function json2csv (data) {
+  const lines = []
+  const header = Object.keys(data[0])
+  lines.push(header)
+  data.forEach((reserva) => {
+    const line = Object.values(reserva)
+    lines.push(line)
+  })
+  const csv = lines.map((line) => line.join(',')).join('\n')
+  return csv
+}

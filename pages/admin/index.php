@@ -84,6 +84,7 @@ if ($user != 'admin') {
       </tbody>
     </table>
     <canvas id="myChart"></canvas>
+    <button class="boton boton-1" onclick="downloadReservasCSV()">Descargar CSV</button>
 
     <div class="modal">
       <div class="modal-card">
