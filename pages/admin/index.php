@@ -19,10 +19,13 @@ if ($user != 'admin') {
   <!-- Icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/admin.css">
-  <link rel="stylesheet" href="/css/login.css">
   <!-- JS -->
   <script src="/js/api.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -38,10 +41,10 @@ if ($user != 'admin') {
   <aside>
     <ul>
       <li>
-        <button>Usuarios</button>
+        <button class="aside-button">Usuarios</button>
       </li>
       <li>
-        <button>Database</button>
+        <button class="aside-button">Database</button>
       </li>
     </ul>
   </aside>
@@ -91,7 +94,7 @@ if ($user != 'admin') {
         <button onclick="closeEdit()" class="close-button">
           <span class="material-symbols-rounded">close</span>
         </button>
-        <form action="/pages/api/updateUser.php" method="post" class="signup">
+        <form action="/pages/api/updateUser.php" method="post" class="edit-user">
           <div class="item">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="name" placeholder="Jacob" class="input" required>
