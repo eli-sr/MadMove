@@ -41,53 +41,57 @@ if ($user != 'admin') {
   <aside>
     <ul>
       <li>
-        <button class="aside-button">Usuarios</button>
+        <button class="aside-button" onclick="showUsuarios()">Usuarios</button>
       </li>
       <li>
-        <button class="aside-button">Database</button>
+        <button class="aside-button" onclick="showReservas()">Database</button>
       </li>
     </ul>
   </aside>
 
   <main>
     <p class="red-emphasis"></p>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Password</th>
-          <th>Name</th>
-          <th>Surname</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $query = "SELECT * FROM USUARIOS";
-        $resultado = executeQuery($query);
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-          $id = $fila['ID'];
-          $username = $fila['USER'];
-          $password = $fila['PASSWORD'];
-          $name = $fila['NAME'];
-          $surname = $fila['SURNAME'];
-          echo '<tr>';
-          echo '<td>' . $id . '</td>';
-          echo '<td>' . $username . '</td>';
-          echo '<td>' . $password . '</td>';
-          echo '<td>' . $name . '</td>';
-          echo '<td>' . $surname . '</td>';
-          echo '<td><button onclick=\'editUser("' . $id . '","' . $username . '","' . $name . '","' . $surname . '","' . $password . '")\'>';
-          echo 'Editar</button></td>';
-          if ($fila['USER'] != 'admin')
-            echo '<td><button onclick=\'deleteUser("' . $username . '")\'>Eliminar</button></td>';
-          echo '</tr>';
-        }
-        ?>
-      </tbody>
-    </table>
-    <canvas id="myChart"></canvas>
-    <button class="boton boton-1" onclick="downloadReservasCSV()">Descargar CSV</button>
+    <section id="panelUsuarios" class="panel">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Name</th>
+            <th>Surname</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $query = "SELECT * FROM USUARIOS";
+          $resultado = executeQuery($query);
+          while ($fila = mysqli_fetch_assoc($resultado)) {
+            $id = $fila['ID'];
+            $username = $fila['USER'];
+            $password = $fila['PASSWORD'];
+            $name = $fila['NAME'];
+            $surname = $fila['SURNAME'];
+            echo '<tr>';
+            echo '<td>' . $id . '</td>';
+            echo '<td>' . $username . '</td>';
+            echo '<td>' . $password . '</td>';
+            echo '<td>' . $name . '</td>';
+            echo '<td>' . $surname . '</td>';
+            echo '<td><button onclick=\'editUser("' . $id . '","' . $username . '","' . $name . '","' . $surname . '","' . $password . '")\'>';
+            echo 'Editar</button></td>';
+            if ($fila['USER'] != 'admin')
+              echo '<td><button onclick=\'deleteUser("' . $username . '")\'>Eliminar</button></td>';
+            echo '</tr>';
+          }
+          ?>
+        </tbody>
+      </table>
+    </section>
+    <section id="panelReservas" class="panel">
+      <canvas id="myChart"></canvas>
+      <button class="boton boton-1" onclick="downloadReservasCSV()">Descargar CSV</button>
+    </section>
 
     <div class="modal">
       <div class="modal-card">
@@ -126,6 +130,7 @@ if ($user != 'admin') {
 
   <!-- Body Scripts -->
   <script src="/js/admin.js"></script>
+  <script src="/js/adminPanel.js"></script>
 </body>
 
 </html>
