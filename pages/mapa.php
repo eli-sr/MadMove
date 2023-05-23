@@ -116,9 +116,32 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
           </a>
         </li>
       <?php } ?>
+      <li>
+        <button class="aside-button" onclick="showBienvenida()">
+          <span class="material-symbols-rounded">info</span>
+          <p>About</p>
+        </button>
+      </li>
     </ul>
   </aside>
   <aside class="aside-2">
+    <div id="panelBienvenida" class="panel">
+      <button onclick="closeMenu()" class="close-button">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+      <h1>¡Bienvenido a MadMove!</h1>
+      <p>MadMove es el mapa interactivo de Madrid, creado para
+        las personas que deseen movilizarse por la ciudad de la
+        manera más cómoda y rápida.</p>
+      <p>En MadMove podrás ver toda la información de las <b>líneas</b>
+        y <b>paradas</b> de bus en Madrid. Si inicias sesión podrás consultar
+        las <b>bicicletas</b> de las estaciones de BiciMad, reservar estacionamiento en los <b>parkings</b> de Madrid y
+        obtener la <b>mejor ruta</b> de punto a punto para moverte por Madrid.
+      </p>
+      <?php if (!isset($user)) { ?>
+        <a href="/pages/login.php" class="boton boton-1">Iniciar sesión</a>
+      <?php } ?>
+    </div>
     <div id="panelLinea" class="panel">
       <button onclick="closeMenu()" class="close-button">
         <span class="material-symbols-rounded">close</span>

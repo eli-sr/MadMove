@@ -216,6 +216,21 @@ header {
     display: none;
 }
 
+/* Panel reservas */
+
+#panelBienvenida {
+    opacity: 1;
+    display: flex;
+}
+
+#panelBienvenida p {
+    color: #333;
+}
+
+#panelBienvenida a {
+    margin-top: 1rem;
+}
+
 /* Keyframes */
 @keyframes openMenu{
     from {

@@ -3,6 +3,7 @@ const panelParadas = document.getElementById('panelParadas')
 const panelComoLlegar = document.getElementById('panelComoLlegar')
 const panelBicicleta = document.getElementById('panelBicicleta')
 const panelParkings = document.getElementById('panelParkings')
+const panelBienvenida = document.getElementById('panelBienvenida')
 const aside2 = document.getElementsByClassName('aside-2')[0]
 
 let menuOpen = false
@@ -36,21 +37,21 @@ function showPanel (panelShow, panelsHide) {
 
 function showLineas () {
   if (!menuOpen) openMenu()
-  showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta, panelParkings])
+  showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
 }
 
 function showParadas () {
   if (!menuOpen) openMenu()
-  showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta, panelParkings])
+  showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
 }
 
 function showBicis () {
   if (!menuOpen) openMenu()
-  showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar, panelParkings])
+  showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
   setEstaciones()
@@ -58,7 +59,7 @@ function showBicis () {
 
 function showComoLlegar () {
   if (!menuOpen) openMenu()
-  showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta, panelParkings])
+  showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
   comoLlegar = true
@@ -66,11 +67,22 @@ function showComoLlegar () {
 
 function showParkings () {
   if (!menuOpen) openMenu()
-  showPanel(panelParkings, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta])
+  showPanel(panelParkings, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta, panelBienvenida])
   hideDetalles()
   clearGrupo()
   setParkings()
 }
+
+function showBienvenida () {
+  if (!menuOpen) openMenu()
+  showPanel(panelBienvenida, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta, panelParkings])
+  hideDetalles()
+  clearGrupo()
+}
+
+window.addEventListener('load', function () {
+  showBienvenida()
+})
 
 function showDetalles () {
   // Panel shadow
