@@ -17,8 +17,17 @@ aside {
     width: 100%;
     padding: 1rem;
     font-size: medium;
+    font-weight: 600;
     border-radius: .75rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.aside-button p {
+    margin: 0;
+    padding-left: 1rem;
 }
 
 .aside-button:hover {
@@ -50,6 +59,10 @@ li:not(:last-child){
 main {
     width: 100%;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
 }
 
 .edit-user {
@@ -85,8 +98,38 @@ main {
 .panel {
     display: none;
     flex-direction: column;
+    width: 800px;
+    justify-content: center;
+    background-color: white;
+    padding: 3rem 5rem 3rem 5rem;
+    box-shadow: 0 0 10px -5px #333;
+    border-radius: 1rem;
 }
 
 #panelUsuarios {
     display: flex;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+th:first-child,td:first-child {
+    padding-left: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-sur{
+    border: 2px solid #151515;
+    border-radius: 1rem;
+    overflow: clip;
 }
