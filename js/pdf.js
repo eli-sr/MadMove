@@ -6,18 +6,8 @@ function GeneratePDF (reserva) {
     orientationLandscape: false,
     compress: true,
     logo: {
-      src: 'https://raw.githubusercontent.com/edisonneza/jspdf-invoice-template/demo/images/logo.png',
-      width: 53.33, // asprrect ratio = width/height
-      height: 26.66,
-      margin: {
-        top: 0, // negative or positive num, from the current position
-        left: 0 // negative or positive num, from the current position
-      }
-    },
-    stamp: {
-      inAllPages: true,
-      src: 'https://raw.githubusercontent.com/edisonneza/jspdf-invoice-template/demo/images/qr_code.jpg',
-      width: 20, // aspect ratio = width/height
+      src: '../img/logo.png',
+      width: 20, // asprrect ratio = width/height
       height: 20,
       margin: {
         top: 0, // negative or positive num, from the current position

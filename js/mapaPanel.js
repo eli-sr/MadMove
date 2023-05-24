@@ -70,6 +70,7 @@ function showParkings () {
   showPanel(panelParkings, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta, panelBienvenida])
   hideDetalles()
   hideAllReservar()
+  hideReservarButton()
   clearGrupo()
   setParkings()
 }

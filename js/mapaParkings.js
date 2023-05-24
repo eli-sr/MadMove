@@ -95,10 +95,13 @@ function showReservar (parking) {
   `
 }
 
+function hideReservarButton () {
+  reservaButton.style.display = 'none'
+}
+
 function hideAllReservar () {
   modal.style.display = 'none'
   reservar.style.display = 'none'
-  reservaButton.style.display = 'none'
   resOk.style.display = 'none'
   resNok.style.display = 'none'
 }
