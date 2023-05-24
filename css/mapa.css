@@ -159,6 +159,10 @@ header {
     font-weight: 700;
 }
 
+.block p {
+    margin: 0 0 10px 0;
+}
+
 .block-h {
     display: flex;
     align-items: center;
@@ -216,7 +220,7 @@ header {
     display: none;
 }
 
-/* Panel reservas */
+/* Panel bienvenida */
 
 #panelBienvenida {
     opacity: 1;

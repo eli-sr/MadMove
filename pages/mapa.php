@@ -264,16 +264,16 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </button>
       <form onsubmit="makeReserva(event)">
         <h1>Reservar parking</h1>
-        <p>Parking: Nombre del parking</p>
-        <p>Dirección: Dirección del parking</p>
-        <p>Estado: Disponible</p>
-        <p>La reserva estará disponible durante media hora, si el usuario no accede al estacionamiento, la reserva se
-          cancelará.</p>
-        <p>Día:</p>
-        <input type="date" name="fecha" required />
-        <p>Hora:</p>
-        <input type="time" name="hora" required />
-        <button class="boton boton-1">Reservar</button>
+        <div id="reserva-data" class="block"></div>
+        <div class="block">
+          <p>Día:</p>
+          <input type="date" name="fecha" required />
+          <p>Hora:</p>
+          <input type="time" name="hora" required />
+        </div>
+        <div class="block">
+          <button class="boton boton-1">Reservar</button>
+        </div>
       </form>
     </div>
     <div id="res-ok" class="modal-card">

@@ -86,6 +86,13 @@ function showReservar (parking) {
   reserva.nombre = parking.name
   reserva.espacioLibre = parking.freeParking
   reserva.espacioTotal = parking.parkingSpaces
+  const reservaData = document.getElementById('reserva-data')
+  reservaData.innerHTML = `
+    <p>Parking: ${reserva.nombre}</p>
+    <p>Dirección: ${reserva.direccion}</p>
+    <p>Estado: ${reserva.espacioLibre} plazas libres de ${reserva.espacioTotal}</p>
+    <p>La reserva estará disponible durante media hora, si el usuario no accede al estacionamiento, la reserva se cancelará.
+  `
 }
 
 function hideAllReservar () {
