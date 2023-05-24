@@ -73,6 +73,22 @@ body {
     border-radius: 1rem;
 }
 
+.orange-emphasis {
+    background-color: #fdf3ef;
+    color: #e8825a !important;
+    border: 2px solid #ff9970;
+    padding: .5rem 0 .5rem 1rem;
+    border-radius: 1rem;
+}
+
+.blue-emphasis {
+    background-color: #edf0ff;
+    color: #485fc7 !important;
+    border: 2px solid #485fc7;
+    padding: .5rem 0 .5rem 1rem;
+    border-radius: 1rem;
+}
+
 .line {
     border-bottom: 1px solid #dadce0;
     width: 100%;

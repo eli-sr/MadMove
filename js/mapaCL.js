@@ -106,7 +106,7 @@ function setLineTrip (sections) {
       geometry: section.itinerary,
       properties: {}
     }
-    const color = section.type === 'Walk' ? 'orange' : 'green'
+    const color = section.type === 'Walk' ? 'orange' : '#485fc7'
     // Add lines
     L.geoJSON(geojsonFeature, { color }).addTo(grupo)
     // Add steps

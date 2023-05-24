@@ -2,6 +2,7 @@
 const reserva = {}
 const modal = document.querySelector('.modal')
 const reservar = document.getElementById('reservar')
+const reservaButton = document.getElementById('botonReservar')
 const resOk = document.getElementById('res-ok')
 const resNok = document.getElementById('res-nok')
 
@@ -90,6 +91,7 @@ function showReservar (parking) {
 function hideAllReservar () {
   modal.style.display = 'none'
   reservar.style.display = 'none'
+  reservaButton.style.display = 'none'
   resOk.style.display = 'none'
   resNok.style.display = 'none'
 }
@@ -100,7 +102,6 @@ async function showInfoParking (parking) {
   const nombre = document.getElementById('nombre')
   const infoHTML = document.getElementById('info')
   const detalles = document.getElementById('detalles')
-  const reservaButton = document.getElementById('botonReservar')
   // Resetting info
   infoHTML.style.display = 'none'
   reservaButton.style.display = 'none'

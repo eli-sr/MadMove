@@ -223,9 +223,12 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <p>Encuentra aparcamiento cerca de ti</p>
       <form onsubmit="cancelarReserva(event)">
         <div class="block">
-          <button class="boton boton-1" type="submit">Cancelar reservas activas</button>
+          <button class="boton" type="submit">Cancelar reservas activas</button>
         </div>
       </form>
+      <div class="block">
+        <button id="botonReservar" class="boton boton-1">Reservar parking</button>
+      </div>
     </div>
     <div id="panelComoLlegar" class="panel">
       <button onclick="closeMenu()" class="close-button">
@@ -235,8 +238,8 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <p>Seleccione dos puntos en el mapa para conocer el trayecto a seguir</p>
       <div class="block">
         <h2>Leyenda</h2>
-        <p class="green-emphasis">Bus</p>
-        <p class="red-emphasis">A pie</p>
+        <p class="orange-emphasis">A pie</p>
+        <p class="blue-emphasis">Bus</p>
       </div>
     </div>
     <div class="loading-info">
@@ -247,9 +250,6 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <div class="info">
         <h2 id='nombre'></h2>
         <div id="detalles"></div>
-        <div class="block">
-          <button id="botonReservar" class="boton boton-1">Reservar parking</button>
-        </div>
       </div>
     </div>
   </aside>

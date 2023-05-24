@@ -69,6 +69,7 @@ function showParkings () {
   if (!menuOpen) openMenu()
   showPanel(panelParkings, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta, panelBienvenida])
   hideDetalles()
+  hideAllReservar()
   clearGrupo()
   setParkings()
 }
