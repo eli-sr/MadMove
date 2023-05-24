@@ -93,10 +93,10 @@ if ($user != 'admin') {
               echo '<td>' . $password . '</td>';
               echo '<td>' . $name . '</td>';
               echo '<td>' . $surname . '</td>';
-              echo '<td><button onclick=\'editUser("' . $id . '","' . $username . '","' . $name . '","' . $surname . '","' . $password . '")\'>';
+              echo '<td><button class="boton boton-1" onclick=\'editUser("' . $id . '","' . $username . '","' . $name . '","' . $surname . '","' . $password . '")\'>';
               echo 'Editar</button></td>';
               if ($fila['USER'] != 'admin')
-                echo '<td><button onclick=\'deleteUser("' . $username . '")\'>Eliminar</button></td>';
+                echo '<td><button class="boton" onclick=\'deleteUser("' . $username . '")\'>Eliminar</button></td>';
               echo '</tr>';
             }
             ?>
@@ -123,10 +123,24 @@ if ($user != 'admin') {
         EMTMadrid.
       </p>
       <div class="block">
-        <button onclick="resetLineas()">Resetear LINEAS</button>
-        <button onclick="resetParadas()">Resetear PARADAS</button>
-        <div id="server-response"></div>
+        <h3>Resetear LINEAS a valores de fábrica</h3>
+        <p>Resetea los valores de la tabla LINEAS, incluyendo: id, 
+          nombre, primera parada, última parada y grupo al que
+          pertenecen, a los valores de fábrica ofrecidos por la 
+          API de EMTMadrid. 
+        </p>
+        <button onclick="resetLineas()" class="boton">Resetear LINEAS</button>
       </div>
+      <div class="block">
+        <h3>Resetear PARADAS a valores de fábrica</h3>
+        <p>Resetea los valores de la tabla PARADAS, incluyendo: id, 
+          nombre, lineas a las que pertenece y coordenadas, 
+          a los valores de fábrica ofrecidos por la 
+          API de EMTMadrid. 
+        </p>
+        <button onclick="resetParadas()" class="boton">Resetear PARADAS</button>
+      </div>
+      <div id="server-response" class="block"></div>
     </section>
 
     <div class="modal">
