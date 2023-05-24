@@ -15,7 +15,7 @@ if ($user != 'admin') {
 
 <head>
   <meta charset="UTF-8">
-  <title>Admin</title>
+  <title>Administración - MadMove</title>
   <!-- Icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -40,6 +40,12 @@ if ($user != 'admin') {
 
   <aside>
     <ul>
+      <li>
+        <div class="logo">
+          <img src="../../img/logo.svg" alt="logo">
+          <p>Administración</p>
+        </div>
+      </li>
       <li>
         <button class="aside-button" onclick="showUsuarios()">
           <span class="material-symbols-rounded">group</span>

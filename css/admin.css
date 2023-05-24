@@ -48,12 +48,13 @@ li {
     width: 100%;
 }
 
-li:first-child {
-    margin-top: 5rem;
-}
-
 li:not(:last-child){
     margin-bottom: .5rem;
+}
+
+li:first-child {
+    margin-top: 1rem;
+    margin-bottom: .75rem;
 }
 
 main {
@@ -132,4 +133,17 @@ tr:nth-child(even) {
     border: 2px solid #151515;
     border-radius: 1rem;
     overflow: clip;
+}
+
+.logo {
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 13px;
+    margin-left: 13px;
 }
