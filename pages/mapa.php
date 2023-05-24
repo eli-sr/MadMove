@@ -246,6 +246,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </div>
     </div>
   </aside>
+  <div class="loading">
+    <div class="loading-icon"></div>
+  </div>
   <div id="map"></div>
   <div class="modal">
     <div id="reservar" class="modal-card">

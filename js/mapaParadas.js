@@ -4,7 +4,7 @@ map.on('click', showParadasCursor)
 // FUNCTIONS
 async function setAllParadas () {
   clearGrupo()
-  console.log('Mostrar cargando')
+  setLoading(true)
   const link = '/pages/api/getParadas.php'
   const response = await fetch(link, {
     method: 'GET',
@@ -13,7 +13,7 @@ async function setAllParadas () {
     }
   })
   const paradas = await response.json()
-  console.log('Mostrar listo!')
+  setLoading(false)
   paradas.forEach((parada) => {
     try {
       setParada(parada, grupoMC)
@@ -42,7 +42,9 @@ async function searchParadas (event) {
   const place = form.querySelector('input[name="place"]').value
   const number = form.querySelector('input[name="number"]').value
   const range = form.querySelector('input[name="per"]').value
+  setLoading(true)
   const paradas = await getParadasPlace(place, number, range)
+  setLoading(false)
   if (paradas) {
     paradas.forEach((parada) => {
       parada.name = parada.stopName
@@ -70,7 +72,9 @@ async function showParadasCursor (event) {
   paradaCursor = false
   const range = document.getElementById('per').value
   addMarkMap(event)
+  setLoading(true)
   const paradas = await getParadasCursor(event.latlng, range)
+  setLoading(false)
   if (paradas) {
     paradas.forEach((parada) => {
       parada.name = parada.stopName

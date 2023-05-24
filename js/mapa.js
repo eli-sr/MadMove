@@ -50,3 +50,12 @@ function setEstacion (estacion, grupo) {
 function addMarkMap (event) {
   L.marker(event.latlng).addTo(grupo)
 }
+
+function setLoading (loading) {
+  const loadingHTML = document.querySelector('.loading')
+  if (loading) {
+    loadingHTML.style.display = 'flex'
+  } else {
+    loadingHTML.style.display = 'none'
+  }
+}

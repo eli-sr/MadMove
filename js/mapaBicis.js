@@ -8,9 +8,11 @@ function setZonas (zonas) {
 async function setEstaciones () {
   const linkZonas = 'https://openapi.emtmadrid.es/v1/transport/bicimadgo/zones/'
   const linkEst = 'https://openapi.emtmadrid.es/v1/transport/bicimad/stations/'
+  setLoading(true)
   const zonas = await getData(linkZonas)
-  setZonas(zonas)
   const estaciones = await getData(linkEst)
+  setLoading(false)
+  setZonas(zonas)
   estaciones.forEach((estacion) => {
     setEstacion(estacion, grupoMC)
   })

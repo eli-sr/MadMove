@@ -10,12 +10,12 @@ function setParadaLinea (parada) {
 
 async function setLinea (value, dir = 1) {
   clearGrupo()
-  console.log('Mostrar cargando')
   let id = value
   if (!id) id = document.getElementById('selectLinea').value
   const link = `https://openapi.emtmadrid.es/v2/transport/busemtmad/lines/${id}/stops/${dir}/`
+  setLoading(true)
   const data = await getData(link)
-  console.log('Mostrar listo!')
+  setLoading(false)
   const paradas = data[0].stops
   paradas.forEach((parada) => setParadaLinea(parada))
   L.geoJSON(lineaDraw, { color: 'green' }).addTo(grupo)

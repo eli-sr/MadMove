@@ -15,7 +15,9 @@ function setParking (parking, grupo) {
 
 async function setParkings () {
   const link = 'https://openapi.emtmadrid.es/v4/citymad/places/parkings/availability/'
+  setLoading(true)
   const parkings = await getData(link)
+  setLoading(false)
   parkings.forEach((parking) => {
     setParking(parking, grupoMC)
   })

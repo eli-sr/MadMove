@@ -133,9 +133,9 @@ async function setMarks (event) {
   if (parada1 && parada2) {
     // Get trip
     console.log('Mostar cargando!')
+    setLoading(true)
     const trip = await getTrip(parada1, parada2)
-    console.log(trip)
-    console.log('Mostar ok!')
+    setLoading(false)
     showInfoTrip(trip)
     // Add lines & stops
     setLineTrip(trip.sections)
