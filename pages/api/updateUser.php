@@ -11,13 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Comprobar contraseña
     if ($password != $password_confirmation) {
-        header("Location: /pages/admin/index.php?password_error=1");
+        header("Location: /pages/admin.php?password_error=1");
         exit();
     }
 
     // Comprobar que no es admin
     if ($user == "admin") {
-        header("Location: /pages/admin/index.php?user_error=1");
+        header("Location: /pages/admin.php?user_error=1");
         exit();
     }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_close($conn);
 
     // Redirigir a la pagina
-    header("Location: /pages/admin/");
+    header("Location: /pages/admin.php");
 
 } else {
     http_response_code(405);

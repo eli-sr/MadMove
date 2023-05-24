@@ -54,7 +54,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
     <ul id="user-menu">
       <?php if ($user == "admin") { ?>
         <li>
-          <a href="/pages/admin/">Panel admin</a>
+          <a href="/pages/admin.php">Panel admin</a>
         </li>
       <?php } ?>
       <li>
