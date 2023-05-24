@@ -44,7 +44,6 @@ function showStep (step) {
 }
 
 function showSection (section) {
-  console.log('sect', section)
   const div = document.createElement('div')
   switch (section.type) {
     case 'Walk':

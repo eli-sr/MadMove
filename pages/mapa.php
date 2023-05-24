@@ -22,6 +22,8 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <!-- jsPDF -->
   <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
   <!-- Icons -->

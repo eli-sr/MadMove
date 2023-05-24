@@ -36,21 +36,25 @@ async function getAccessToken () {
   return token
 }
 
-async function getData (link, method = 'GET', body) {
-  try {
+function getData (url, method = 'GET', body) {
+  return new Promise((resolve, reject) => {
     const request = {
-      method,
+      method: method.toLocaleUpperCase(),
+      url,
       headers: {
         accessToken
+      },
+      success: (data) => {
+        resolve(data.data)
+      },
+      error: (jqXHR, textStatus, errorThrown) => {
+        reject(new Error('getData: ' + errorThrown))
       }
     }
-    if (body !== undefined && method.toUpperCase() === 'POST') {
-      request.body = JSON.stringify(body)
+    if (body !== undefined && method.toLocaleUpperCase() === 'POST') {
+      request.data = JSON.stringify(body)
+      request.contentType = 'application/json'
     }
-    const response = await fetch(link, request)
-    const data = await response.json()
-    return data.data
-  } catch (error) {
-    throw new Error('getData: ' + error)
-  }
+    $.ajax(request)
+  })
 }
