@@ -147,29 +147,6 @@ header {
     font-size: 14px;
 }
 
-.block {
-    margin: 1rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.block h2 {
-    margin: 0 0 0.75rem 0;
-    font-size: large;
-    font-weight: 700;
-}
-
-.block p {
-    margin: 0 0 10px 0;
-}
-
-.block-h {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 0 1rem 0;
-}
-
 /* Panel info */
 #info h2{
     margin: 0 0 0.75rem 0;

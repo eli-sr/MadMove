@@ -107,6 +107,14 @@ main {
     border-radius: 1rem;
 }
 
+.panel h1, .panel h2, .panel h3 {
+    margin: 0 0 1rem 0;
+}
+
+.panel p {
+    margin: 0 0 .5rem 0;
+}
+
 #panelUsuarios {
     display: flex;
 }
@@ -129,7 +137,7 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.table-sur{
+.table-usr{
     border: 2px solid #151515;
     border-radius: 1rem;
     overflow: clip;

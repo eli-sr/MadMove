@@ -32,11 +32,6 @@ if ($user != 'admin') {
 </head>
 
 <body>
-  <!-- <button onclick="cargarLineas()">Cargar datos LINEAS</button>
-  <button onclick="limpiarLineas()">Limpiar datos LINEAS</button>
-  <button onclick="cargarParadas()">Cargar datos PARADAS</button>
-  <button onclick="limpiarParadas()">Limpiar datos PARADAS</button>
-  <div id="server-response"></div> -->
 
   <aside>
     <ul>
@@ -59,7 +54,7 @@ if ($user != 'admin') {
         </button>
       </li>
       <li>
-        <button class="aside-button" onclick="">
+        <button class="aside-button" onclick="showDB()">
           <span class="material-symbols-rounded">database</span>
           <p>Base de datos</p>
         </button>
@@ -71,7 +66,7 @@ if ($user != 'admin') {
     <section id="panelUsuarios" class="panel">
       <h1>Administración de usuario</h1>
       <p>Edita los usuarios existentes o elimínalos si es necesario.</p>
-      <div class="table-sur">
+      <div class="table-usr block">
         <table>
           <thead>
             <tr>
@@ -113,11 +108,27 @@ if ($user != 'admin') {
       <h1>Reservas</h1>
       <h3>Número de reservas en tiempo real</h3>
       <p>Observa el número de reservas activas para cada parking</p>
-      <canvas id="myChart"></canvas>
-      <h3>Exportar datos</h3>
-      <p>Exporta todos los datos sobre las reservas, incluyendo fecha, hora, usuario, parking y si está pendiente de
-        resolver la reserva.</p>
-      <button class="boton boton-1" onclick="downloadReservasCSV()">Descargar CSV</button>
+      <canvas id="myChart" class="block"></canvas>
+      <div class="block">
+        <h3>Exportar datos</h3>
+        <p>Exporta todos los datos sobre las reservas, incluyendo fecha, hora, usuario, parking y si está pendiente de
+          resolver la reserva.</p>
+        <button class="boton boton-1" onclick="downloadReservasCSV()">Descargar CSV</button>
+      </div>
+    </section>
+    <section id="panelDB" class="panel">
+      <h1>Base de datos</h1>
+      <p class="orange-emphasis">Esta sección resertea la base de datos a los valores iniciales de EMTMadrid.
+        Esto es útil si se corrompe la base de datos interna de MadMove o si actualizan el servicio directamente desde
+        EMTMadrid.
+      </p>
+      <div class="block">
+        <button onclick="cargarLineas()">Cargar datos LINEAS</button>
+        <button onclick="limpiarLineas()">Limpiar datos LINEAS</button>
+        <button onclick="cargarParadas()">Cargar datos PARADAS</button>
+        <button onclick="limpiarParadas()">Limpiar datos PARADAS</button>
+        <div id="server-response"></div>
+      </div>
     </section>
 
     <div class="modal">
