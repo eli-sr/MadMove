@@ -123,14 +123,11 @@ function editUser (id, username, name, surname, password) {
 
 // CHARTS
 
-window.onload = async () => {
+window.addEventListener('load', async () => {
   await generateChart()
-}
+})
 
 async function generateChart () {
-  // const labels = ['Enero', 'Febrero', 'Marzo']
-  // const data = [10, 5, 8]
-
   const response = await fetch('/pages/api/getReservas.php', {
     method: 'GET'
   })
