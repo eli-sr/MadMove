@@ -47,8 +47,10 @@ async function showInfoParada (parada) {
   if (id === undefined) id = parada.id
   if (id === undefined) id = parada.stopId
   // Getting info
+  setLoadingInfo(true)
   const info = await getInfo(id)
   const arrives = await getArrives(id)
+  setLoadingInfo(false)
   // NO info
   if (!info) {
     nombre.innerText = parada.name

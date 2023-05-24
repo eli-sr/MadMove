@@ -61,3 +61,12 @@ function setLoading (loading) {
     loadingHTML.style.display = 'none'
   }
 }
+
+function setLoadingInfo (loading) {
+  const loadingHTML = document.querySelector('.loading-info')
+  if (loading) {
+    loadingHTML.style.display = 'flex'
+  } else {
+    loadingHTML.style.display = 'none'
+  }
+}

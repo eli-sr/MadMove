@@ -254,6 +254,13 @@ header {
   animation: spin 2s linear infinite;
 }
 
+.loading-info {
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Keyframes */
 
 @keyframes spin {

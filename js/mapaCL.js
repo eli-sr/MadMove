@@ -78,7 +78,6 @@ function showSection (section) {
 }
 
 function showInfoTrip (trip) {
-  showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')
   const infoHTML = document.getElementById('info')
@@ -132,10 +131,10 @@ async function setMarks (event) {
   }
   if (parada1 && parada2) {
     // Get trip
-    console.log('Mostar cargando!')
-    setLoading(true)
+    showDetalles()
+    setLoadingInfo(true)
     const trip = await getTrip(parada1, parada2)
-    setLoading(false)
+    setLoadingInfo(false)
     showInfoTrip(trip)
     // Add lines & stops
     setLineTrip(trip.sections)
