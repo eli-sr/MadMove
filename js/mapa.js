@@ -21,6 +21,8 @@ const grupoMC = new L.MarkerClusterGroup({
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map)
+map.zoomControl.remove()
+L.control.zoom({ position: 'bottomright' }).addTo(map)
 
 // FUNCTIONS
 function clearGrupo () {
