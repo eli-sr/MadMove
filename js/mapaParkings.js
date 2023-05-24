@@ -9,7 +9,11 @@ const resNok = document.getElementById('res-nok')
 function setParking (parking, grupo) {
   const nombre = parking.name
   const coordenadas = parking.geometry.coordinates
-  const marcador = L.marker(coordenadas.reverse()).addTo(grupo)
+  const icon = L.icon({
+    iconUrl: '/img/parking.png',
+    iconSize: [25, 25]
+  })
+  const marcador = L.marker(coordenadas.reverse(), { icon }).addTo(grupo)
   marcador.on('click', () => showInfoParking(parking))
   marcador.bindPopup(nombre)
 }

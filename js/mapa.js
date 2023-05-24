@@ -36,7 +36,11 @@ function clearGrupo () {
 function setParada (parada, grupo) {
   const nombre = parada.name
   const coordenadas = parada.geometry.coordinates
-  const marcador = L.marker(coordenadas.reverse()).addTo(grupo)
+  const icon = L.icon({
+    iconUrl: '/img/bus.png',
+    iconSize: [25, 25]
+  })
+  const marcador = L.marker(coordenadas.reverse(), { icon }).addTo(grupo)
   marcador.on('click', () => showInfoParada(parada))
   marcador.bindPopup(nombre)
 }
@@ -44,7 +48,11 @@ function setParada (parada, grupo) {
 function setEstacion (estacion, grupo) {
   const nombre = estacion.name
   const coordenadas = estacion.geometry.coordinates
-  const marcador = L.marker(coordenadas.reverse()).addTo(grupo)
+  const icon = L.icon({
+    iconUrl: '/img/bike.png',
+    iconSize: [30, 38]
+  })
+  const marcador = L.marker(coordenadas.reverse(), { icon }).addTo(grupo)
   marcador.on('click', () => showInfoEstacion(estacion))
   marcador.bindPopup(nombre)
 }
