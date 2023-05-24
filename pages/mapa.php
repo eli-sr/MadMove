@@ -41,7 +41,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
 <body>
   <header>
     <?php if (isset($user)) { ?>
-      <button onclick="openUserMenu()" class="boton boton-1">
+      <button onclick="toggleUserMenu()" class="boton boton-1">
         <?php echo $user ?>
       </button>
     <?php } else { ?>
@@ -55,9 +55,6 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
           <a href="/pages/admin/">Panel admin</a>
         </li>
       <?php } ?>
-      <li>
-        <a href="#">Ajustes</a>
-      </li>
       <li>
         <button onclick="logOut()">Cerrar sesión</button>
       </li>

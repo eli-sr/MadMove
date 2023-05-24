@@ -1,6 +1,26 @@
+const userMenu = document.getElementById('user-menu')
+
+let open = false
+
 function openUserMenu () {
-  const userMenu = document.getElementById('user-menu')
+  userMenu.style.display = 'flex'
   userMenu.style.opacity = 1
+}
+function closeUserMenu () {
+  userMenu.style.opacity = 0
+  setTimeout(() => {
+    userMenu.style.display = 'none'
+  }, 150)
+}
+
+function toggleUserMenu () {
+  if (open) {
+    closeUserMenu()
+    open = false
+  } else {
+    openUserMenu()
+    open = true
+  }
 }
 
 function logOut () {
@@ -9,7 +29,7 @@ function logOut () {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
-  }).then(response => {
+  }).then((response) => {
     window.location.reload()
   })
 }
