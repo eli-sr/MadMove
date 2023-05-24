@@ -14,14 +14,14 @@ async function getData (link, method = 'GET') {
 }
 
 function insertData (data, apiLink) {
-  console.log('bendita data', data)
   const response = document.getElementById('server-response')
   const xhr = new XMLHttpRequest()
   xhr.open('POST', apiLink)
   xhr.setRequestHeader('Content-Type', 'application/json')
   xhr.onload = () => {
     if (xhr.status === 200) {
-      response.innerHTML = xhr.response
+      const json = JSON.parse(xhr.response)
+      response.innerHTML = `<p class="green-emphasis">${json.ok} filas reinsertadas</p>`
     }
   }
   xhr.send(JSON.stringify(data))
@@ -31,11 +31,6 @@ function clearData (tabla) {
   const response = document.getElementById('server-response')
   const xhr = new XMLHttpRequest()
   xhr.open('DELETE', '/pages/api/deleteData.php')
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      response.innerHTML = xhr.response
-    }
-  }
   xhr.send(tabla)
 }
 
@@ -59,6 +54,16 @@ function limpiarParadas () {
 
 function limpiarLineas () {
   clearData('LINEAS')
+}
+
+function resetParadas () {
+  limpiarParadas()
+  cargarParadas()
+}
+
+function resetLineas () {
+  limpiarLineas()
+  cargarLineas()
 }
 
 // EDIT USERS

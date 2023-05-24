@@ -123,10 +123,8 @@ if ($user != 'admin') {
         EMTMadrid.
       </p>
       <div class="block">
-        <button onclick="cargarLineas()">Cargar datos LINEAS</button>
-        <button onclick="limpiarLineas()">Limpiar datos LINEAS</button>
-        <button onclick="cargarParadas()">Cargar datos PARADAS</button>
-        <button onclick="limpiarParadas()">Limpiar datos PARADAS</button>
+        <button onclick="resetLineas()">Resetear LINEAS</button>
+        <button onclick="resetParadas()">Resetear PARADAS</button>
         <div id="server-response"></div>
       </div>
     </section>

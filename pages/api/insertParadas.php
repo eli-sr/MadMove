@@ -1,5 +1,9 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // vars
+  $inserted_ok = 0;
+  $inserted_nok = 0;
+  // Fetch data
   $data_json = file_get_contents('php://input');
   $data_json = json_decode($data_json);
   $allLines = $data_json->data;
@@ -21,12 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Catch errores
     try {
       mysqli_query($conn, $query);
-      echo "[+] Datos insertados correctamente <br>";
+      // Datos insertados correctamente
+      $inserted_ok += 1;
     } catch (mysqli_sql_exception $e) {
-      echo "[-] Ha ocurrido un error: " . $e->getMessage() . "<br>";
+      // Ha ocurrido un error
+      $inserted_nok += 1;
     }
   }
-  // Close connection
+  // Return JSON
+  echo '{"ok":' . $inserted_ok . ',"nok":' . $inserted_nok . '}';
+  // Cerrar la conexión a la base de datos
   mysqli_close($conn);
 } else {
   http_response_code(405);
