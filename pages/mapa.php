@@ -136,7 +136,8 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
         las personas que deseen movilizarse por la ciudad de la
         manera más cómoda y rápida.</p>
       <p>En MadMove podrás ver toda la información de las <b>líneas</b>
-        y <b>paradas</b> de bus en Madrid. Si inicias sesión podrás consultar
+        y <b>paradas</b> de bus en Madrid. </p>
+      <p>Si <i>inicias sesión </i> podrás consultar
         las <b>bicicletas</b> de las estaciones de BiciMad, reservar estacionamiento en los <b>parkings</b> de Madrid y
         obtener la <b>mejor ruta</b> de punto a punto para moverte por Madrid.
       </p>

@@ -55,6 +55,9 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       </div>
       <input type="submit" value="Continuar" class="boton boton-1 item" id="login">
     </form>
+    <div class="block-h">
+      <a href="/pages/login.php" class="link">Ya tengo cuenta</a>
+    </div>
     <?php if (isset($_GET['password_error'])) { ?>
       <p class="red-emphasis">Las contraseñas no coinciden</p>
     <?php } ?>
