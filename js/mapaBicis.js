@@ -36,7 +36,6 @@ async function showInfoEstacion (estacion) {
     Bicicletas estacionadas: ${estacion.dock_bikes}<br>
     Estaciones libres: ${estacion.free_bases}<br>
     Estaciones reservadas: ${estacion.reservations_count}<br>
-    Ocupación COLORINESSS Y LOGOS: ${estacion.light}<br>
   `
   infoHTML.style.display = 'flex'
 }

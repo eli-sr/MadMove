@@ -69,7 +69,6 @@ function resetLineas () {
 // EDIT USERS
 
 function deleteUser (username) {
-  console.log(username, 'cheee')
   if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
     // Realizar una solicitud AJAX para eliminar el usuario
     const xhr = new XMLHttpRequest()
@@ -106,7 +105,6 @@ function editUser (id, username, name, surname, password) {
   const passDOM = document.querySelector("input[name='password']")
   const passConDOM = document.querySelector("input[name='password-confirmation']")
   const idDOM = document.querySelector("input[name='id']")
-  // console.log(idDOM)
   //
   modal.style.display = 'flex'
   card.style.display = 'flex'
@@ -138,7 +136,6 @@ async function generateChart () {
   })
 
   const result = await response.json()
-  console.log(result)
 
   const labels = result.map((parking) => {
     return parking.parkingId
@@ -146,8 +143,6 @@ async function generateChart () {
   const data = result.map((parking) => {
     return parking.num
   })
-
-  console.log(labels, data)
 
   // Crea el gráfico
   const ctx = document.getElementById('myChart').getContext('2d')
