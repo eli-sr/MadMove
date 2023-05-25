@@ -170,9 +170,8 @@ async function generateChart () {
   })
 }
 
-async function downloadReservasCSV () {
-  const filename = 'reservas.csv'
-  const data = await fetch('/pages/api/getAllReservas.php', { method: 'GET' })
+async function downloadCSV (filename, url) {
+  const data = await fetch(url, { method: 'GET' })
   const json = await data.json()
   const csv = json2csv(json)
   const link = document.createElement('a')
@@ -182,6 +181,30 @@ async function downloadReservasCSV () {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+}
+
+async function downloadUsuariosCSV () {
+  const filename = 'usuarios.csv'
+  const link = '/pages/api/getUsers.php'
+  downloadCSV(filename, link)
+}
+
+async function downloadReservasCSV () {
+  const filename = 'reservas.csv'
+  const link = '/pages/api/getAllReservas.php'
+  downloadCSV(filename, link)
+}
+
+async function downloadParadasCSV () {
+  const filename = 'paradas.csv'
+  const link = '/pages/api/getParadas.php'
+  downloadCSV(filename, link)
+}
+
+async function downloadLineasCSV () {
+  const filename = 'lineas.csv'
+  const link = '/pages/api/getLineas.php'
+  downloadCSV(filename, link)
 }
 
 function json2csv (data) {

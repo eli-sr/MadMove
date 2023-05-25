@@ -71,10 +71,10 @@ if ($user != 'admin') {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Username</th>
-              <th>Password</th>
-              <th>Name</th>
-              <th>Surname</th>
+              <th>Usuario</th>
+              <th>Contraseña</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
             </tr>
           </thead>
           <tbody>
@@ -104,6 +104,11 @@ if ($user != 'admin') {
           </tbody>
         </table>
       </div>
+      <div class="block">
+        <h3>Exportar datos</h3>
+        <p>Exporta todos los datos sobre los usuarios, incluyendo id, usuario, contraseña, nombre y apellido</p>
+        <button class="boton boton-1" onclick="downloadUsuariosCSV()">Exportar Usuarios a CSV</button>
+      </div>
     </section>
     <section id="panelReservas" class="panel">
       <h1>Reservas</h1>
@@ -114,14 +119,27 @@ if ($user != 'admin') {
         <h3>Exportar datos</h3>
         <p>Exporta todos los datos sobre las reservas, incluyendo fecha, hora, usuario, parking y si está pendiente de
           resolver la reserva.</p>
-        <button class="boton boton-1" onclick="downloadReservasCSV()">Descargar CSV</button>
+        <button class="boton boton-1" onclick="downloadReservasCSV()">Exportar Reservas a CSV</button>
       </div>
     </section>
     <section id="panelDB" class="panel">
       <h1>Base de datos</h1>
-      <p class="orange-emphasis">Esta sección resertea la base de datos a los valores iniciales de EMTMadrid.
-        Esto es útil si se corrompe la base de datos interna de MadMove o si actualizan el servicio directamente desde
-        EMTMadrid.
+      <div class="block">
+        <h3>Exportar datos de LINEAS</h3>
+        <p>Exporta todos los datos sobre las líneas, incluyendo id de línea, nombre, destinos y grupo</p>
+        <button class="boton boton-1" onclick="downloadLineasCSV()">Exportar Líneas a CSV</button>
+      </div>
+      <div class="block">
+        <h3>Exportar datos de PARADAS</h3>
+        <p>Exporta todos los datos sobre los usuarios, incluyendo id, nombre, lineas que pasan y coordenadas</p>
+        <button class="boton boton-1" onclick="downloadParadasCSV()">Exportar Paradas a CSV</button>
+      </div>
+      <div class="line block"></div>
+      <div class="block">
+        <p class="orange-emphasis">Esta sección resertea la base de datos a los valores iniciales de EMTMadrid.
+          Esto es útil si se corrompe la base de datos interna de MadMove o si actualizan el servicio directamente desde
+          EMTMadrid.
+      </div>
       </p>
       <div class="block">
         <h3>Resetear LINEAS a valores de fábrica</h3>

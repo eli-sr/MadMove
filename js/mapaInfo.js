@@ -82,7 +82,6 @@ async function showInfoParada (parada) {
       Linea ${linea.label} <br>
       Origen: ${linea.headerA}<br>
       Destino: ${linea.headerB}<br>
-      Destino2: ${linea.destination}<br>
       Tiempo de espera: ${linea.minFreq} min - ${linea.maxFreq} min<br>
       Horario: ${linea.startTime} - ${linea.stopTime}<br>
       Llegada en: ${linea.estimateArrive} <br>
