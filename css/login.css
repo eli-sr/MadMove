@@ -9,6 +9,23 @@ body {
     align-items: center;
 }
 
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title p {
+    margin: 0 0 1.5rem 0;
+    color: gray;
+    font-style: italic;
+}
+
+.title h1 {
+    margin: 0 0 .5rem 0;
+}
+
 .card {
     display: flex;
     flex-direction: column;

@@ -27,11 +27,14 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <div class="logo">
     <img src="../img/logo.svg" alt="logo">
   </div>
-  <h1>Iniciar sesión</h1>
+  <div class="title block">
+    <h1>Iniciar sesión</h1>
+    <p>para disfrutar las funcionalidades de MadMove</p>
+  </div>
   <div class="card">
     <form action="/pages/api/login.php" method="post" class="login">
       <label for="user">Nombre de usuario</label>
-      <input type="text" id="user" name="user" placeholder="jacobmiller96" class="input">
+      <input type="text" id="user" name="user" placeholder="jacobmiller96" class="input" autofocus>
       <label for="password">Contraseña</label>
       <input type="password" id="password" name="password" placeholder="********" class="input">
       <input type="submit" value="Continuar" class="boton boton-1" id="login">

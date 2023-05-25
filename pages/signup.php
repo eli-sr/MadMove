@@ -27,12 +27,15 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <div class="logo">
     <img src="../img/logo.svg" alt="logo">
   </div>
-  <h1>Crear cuenta</h1>
+  <div class="title block">
+    <h1>Crear cuenta</h1>
+    <p>de manera gratuita para disfrutar de todo MadMove</p>
+  </div>
   <div class="card">
     <form action="/pages/api/signup.php" method="post" class="signup">
       <div class="item">
         <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" placeholder="Jacob" class="input" required>
+        <input type="text" id="name" name="name" placeholder="Jacob" class="input" required autofocus>
       </div>
       <div class="item">
         <label for="surname">Apellidos</label>
