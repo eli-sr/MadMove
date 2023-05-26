@@ -42,7 +42,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
     <div class="line"></div>
     <a href="/pages/signup.php" class="boton" id="signup">Crear cuenta</a>
     <div class="block-h">
-      <a href="/pages/mapa.php" class="link">Volver al mapa</a>
+      <a href="/pages/mapa.php" class="link"><- Volver al mapa</a>
     </div>
     <?php if (isset($_GET['login_error'])) { ?>
       <p class="red-emphasis">Usuario o contraseña incorrectos</p>

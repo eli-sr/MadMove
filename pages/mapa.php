@@ -70,7 +70,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <li>
         <button class="aside-button" onclick="showLineas()">
           <span class="material-symbols-rounded">timeline</span>
-          <p>Lineas</p>
+          <p>Líneas</p>
         </button>
       </li>
       <li>
@@ -121,7 +121,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <li>
         <button class="aside-button" onclick="showBienvenida()">
           <span class="material-symbols-rounded">info</span>
-          <p>About</p>
+          <p>Acerca de</p>
         </button>
       </li>
     </ul>
