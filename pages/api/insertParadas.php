@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $data_json = json_decode($data_json);
   $allLines = $data_json->data;
 
-  $conn = mysqli_connect('localhost', 'root', 'root', 'eli');
+  $conn = mysqli_connect($_SERVER['DB_HOST'], $_SERVER['DB_USER'], $_SERVER['DB_PASSWORD'], $_SERVER['DB_NAME']);
   if (!$conn) {
     http_response_code(500);
     die('Error de conexión: ' . mysqli_connect_error());

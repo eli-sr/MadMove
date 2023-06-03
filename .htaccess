@@ -1,0 +1,4 @@
+SetEnv DB_NAME eli
+SetEnv DB_HOST localhost
+SetEnv DB_USER root
+SetEnv DB_PASSWORD root

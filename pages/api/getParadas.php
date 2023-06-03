@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     header('Content-Type: application/json');
     // Establecer conexion
     // params: host,user,pass,dbname
-    $conn = mysqli_connect('localhost', 'root', 'root', 'eli');
+    $conn = mysqli_connect($_SERVER['DB_HOST'], $_SERVER['DB_USER'], $_SERVER['DB_PASSWORD'], $_SERVER['DB_NAME']);
     if (!$conn) {
         http_response_code(500);
         die('Error de conexión: ' . mysqli_connect_error());

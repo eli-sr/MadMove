@@ -2,7 +2,7 @@
 function executeQuery($query)
 {
     // Establecer conexión con la base de datos
-    $conn = mysqli_connect('localhost', 'root', 'root', 'eli');
+    $conn = mysqli_connect($_SERVER['DB_HOST'], $_SERVER['DB_USER'], $_SERVER['DB_PASSWORD'], $_SERVER['DB_NAME']);
 
     // Comprobar conexión
     if (!$conn) {
