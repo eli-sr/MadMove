@@ -64,7 +64,7 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
   <?php } ?>
   <aside class="aside-1">
     <ul>
-      <li>
+      <li class="logo">
         <img src="../img/logo.svg" alt="logo" width="50px">
       </li>
       <li>
