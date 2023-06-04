@@ -37,6 +37,20 @@ header {
 .aside-2 {
   z-index: 5;
   overflow-y: auto;
+  top: 0;
+  width: 300px;
+  position: fixed;
+  left: -350px;
+  padding-left: 90px;
+  box-shadow: none;
+  background-color: transparent;
+  transition: background-color 300ms ease-out, box-shadow 300ms ease-out;
+}
+
+.aside-2.show {
+  background-color: white;
+  box-shadow: 0 0 10px -5px #333;
+  height: 100vh;
 }
 
 .aside-1 ul {
@@ -90,22 +104,6 @@ header {
   background: white;
   border: 0;
   cursor: pointer;
-}
-
-.aside-2 {
-  width: 300px;
-  position: fixed;
-  left: -350px;
-  padding-left: 90px;
-  box-shadow: none;
-  background-color: transparent;
-  transition: background-color 300ms ease-out, box-shadow 300ms ease-out;
-}
-
-.aside-2.show {
-  background-color: white;
-  box-shadow: 0 0 10px -5px #333;
-  height: 100vh;
 }
 
 /* Panel */
@@ -321,5 +319,9 @@ header {
   }
   .aside-1 li:last-child {
     margin-right: 1rem;
+  }
+
+  .aside-2 {
+    padding: 0;
   }
 }
