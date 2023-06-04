@@ -17,7 +17,7 @@ function openMenu () {
 function closeMenu () {
   menuOpen = false
   aside2.style.animation = 'closeMenu 500ms'
-  setTimeout(() => (aside2.style.left = '-300px'), 500)
+  setTimeout(() => (aside2.style.left = '-100%'), 500)
 }
 
 function showPanel (panelShow, panelsHide) {
@@ -95,6 +95,7 @@ function showDetalles () {
   panelParkings.classList.add('no-shadow')
   // Background
   aside2.classList.add('show')
+  aside2.classList.add('full')
 }
 
 function hideDetalles () {
@@ -107,4 +108,5 @@ function hideDetalles () {
   panelParkings.classList.remove('no-shadow')
   // Background
   aside2.classList.remove('show')
+  aside2.classList.remove('full')
 }

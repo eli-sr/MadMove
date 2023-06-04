@@ -40,11 +40,11 @@ header {
   top: 0;
   width: 300px;
   position: fixed;
-  left: -350px;
+  left: -100%;
   padding-left: 90px;
   box-shadow: none;
   background-color: transparent;
-  transition: background-color 300ms ease-out, box-shadow 300ms ease-out;
+  transition: background-color 300ms ease-out, box-shadow 300ms ease-out, width 300ms;
 }
 
 .aside-2.show {
@@ -323,5 +323,9 @@ header {
 
   .aside-2 {
     padding: 0;
+  }
+
+  .aside-2.full {
+    width: 100%;
   }
 }

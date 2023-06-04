@@ -39,6 +39,7 @@ function resetInfo () {
 }
 
 async function showInfoParada (parada) {
+  if (!menuOpen) openMenu()
   showDetalles()
   // Resetting info
   resetInfo()
