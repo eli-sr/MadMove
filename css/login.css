@@ -74,7 +74,7 @@ body {
 
 .signup {
   display: grid;
-  grid-template-columns: repeat(2, 200px);
+  grid-template-columns: repeat(2, minmax(100px, 200px));
   gap: 10px;
 }
 
@@ -108,6 +108,20 @@ body {
 
 .link:visited {
   color: gray;
+}
+
+label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+p {
+  text-align: center;
+}
+
+input[type="submit"] {
+  align-items: center;
 }
 
 @media (max-width: 600px) {
