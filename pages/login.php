@@ -39,7 +39,6 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
       <input type="password" id="password" name="password" placeholder="********" class="input">
       <input type="submit" value="Continuar" class="boton boton-1" id="login">
     </form>
-    <div class="line"></div>
     <a href="/pages/signup.php" class="boton" id="signup">Crear cuenta</a>
     <div class="block-h">
       <a href="/pages/mapa.php" class="link"><- Volver al mapa</a>

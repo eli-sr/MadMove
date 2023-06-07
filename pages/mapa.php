@@ -203,7 +203,6 @@ if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['user'])) {
             <button type="submit" class="boton">Buscar</button>
           </div>
         </form>
-        <br>
       </div>
     </div>
     <div id="panelBicicleta" class="panel">

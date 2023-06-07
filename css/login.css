@@ -120,12 +120,29 @@ p {
   text-align: center;
 }
 
-input[type="submit"] {
+input[type='submit'] {
   align-items: center;
 }
 
 @media (max-width: 600px) {
+  label {
+    font-size: 14px;
+  }
+
   .card {
     box-shadow: none;
+    width: 75%;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+
+  .input {
+    font-size: 14px !important;
+  }
+
+  .title p {
+    margin-bottom: 0.5rem;
   }
 }
