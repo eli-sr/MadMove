@@ -7,6 +7,7 @@ const panelBienvenida = document.getElementById('panelBienvenida')
 const aside2 = document.getElementsByClassName('aside-2')[0]
 
 let menuOpen = false
+let ultimoPanel = null
 
 function openMenu () {
   menuOpen = true
@@ -37,6 +38,8 @@ function showPanel (panelShow, panelsHide) {
 
 function showLineas () {
   if (!menuOpen) openMenu()
+  if (panelLinea === ultimoPanel) return
+  ultimoPanel = panelLinea
   showPanel(panelLinea, [panelParadas, panelComoLlegar, panelBicicleta, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
@@ -44,6 +47,8 @@ function showLineas () {
 
 function showParadas () {
   if (!menuOpen) openMenu()
+  if (panelParadas === ultimoPanel) return
+  ultimoPanel = panelParadas
   showPanel(panelParadas, [panelLinea, panelComoLlegar, panelBicicleta, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
@@ -51,6 +56,8 @@ function showParadas () {
 
 function showBicis () {
   if (!menuOpen) openMenu()
+  if (panelBicicleta === ultimoPanel) return
+  ultimoPanel = panelBicicleta
   showPanel(panelBicicleta, [panelLinea, panelParadas, panelComoLlegar, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
@@ -59,6 +66,8 @@ function showBicis () {
 
 function showComoLlegar () {
   if (!menuOpen) openMenu()
+  if (panelComoLlegar === ultimoPanel) return
+  ultimoPanel = panelComoLlegar
   showPanel(panelComoLlegar, [panelLinea, panelParadas, panelBicicleta, panelParkings, panelBienvenida])
   hideDetalles()
   clearGrupo()
@@ -67,6 +76,8 @@ function showComoLlegar () {
 
 function showParkings () {
   if (!menuOpen) openMenu()
+  if (panelParkings === ultimoPanel) return
+  ultimoPanel = panelParkings
   showPanel(panelParkings, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta, panelBienvenida])
   hideDetalles()
   hideAllReservar()
@@ -77,6 +88,8 @@ function showParkings () {
 
 function showBienvenida () {
   if (!menuOpen) openMenu()
+  if (panelBienvenida === ultimoPanel) return
+  ultimoPanel = panelBienvenida
   showPanel(panelBienvenida, [panelComoLlegar, panelLinea, panelParadas, panelBicicleta, panelParkings])
   hideDetalles()
   clearGrupo()
