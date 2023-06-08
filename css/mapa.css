@@ -334,4 +334,12 @@ header {
   .aside-2.full {
     width: 100%;
   }
+
+  #info {
+    padding-bottom: 60px;
+  }
+
+  .loading-info {
+    padding-bottom: 80px;
+  }
 }
