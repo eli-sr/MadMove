@@ -20,6 +20,7 @@ async function setEstaciones () {
 }
 
 async function showInfoEstacion (estacion) {
+  if (!menuOpen) openMenu()
   showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')

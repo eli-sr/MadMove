@@ -111,6 +111,7 @@ function hideAllReservar () {
 }
 
 async function showInfoParking (parking) {
+  if (!menuOpen) openMenu()
   showDetalles()
   // HTML Constants
   const nombre = document.getElementById('nombre')
